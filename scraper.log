@@ -1,0 +1,48 @@
+2025-06-09 17:51:24,741 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 17:51:24,763 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6749601792}
+2025-06-09 17:51:24,763 - naver_scraper - ERROR - 추출할 URL이 없습니다
+2025-06-09 17:52:19,866 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 17:52:19,883 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6647414784}
+2025-06-09 17:52:19,883 - naver_scraper - INFO - HTML 추출 시작: 1개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 17:52:21,399 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 17:52:21,945 - naver_scraper - INFO - HTML 추출 성공 (div#newsct_article): https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 17:52:25,051 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 17:52:25,051 - naver_scraper - INFO - HTML 추출 완료: 성공 1개, 실패 0개
+2025-06-09 17:52:25,051 - naver_scraper - INFO - 통합 HTML 저장 완료: output//naver_news_combined_20250609_175225.html
+2025-06-09 17:52:25,051 - naver_scraper - INFO - 총 1개 기사, 파일 크기: 4,922 문자
+2025-06-09 17:52:25,051 - naver_scraper - INFO - HTML 추출 완료!
+2025-06-09 17:52:25,051 - naver_scraper - INFO - 소요 시간: 0:00:05.167945
+2025-06-09 17:52:25,051 - naver_scraper - INFO - 성공: 1개
+2025-06-09 17:52:25,051 - naver_scraper - INFO - 실패: 0개
+2025-06-09 17:52:25,051 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 17:54:44,804 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 17:54:44,821 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6679363584}
+2025-06-09 17:54:44,821 - naver_scraper - INFO - HTML 추출 시작: 2개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 17:54:45,633 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 17:54:45,995 - naver_scraper - INFO - HTML 추출 성공 (div#newsct_article): https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 17:55:39,523 - naver_scraper - WARNING - 본문 영역을 찾을 수 없음: https://n.news.naver.com/mnews/article/comment/023/0003908588?sid=102
+2025-06-09 17:55:39,524 - naver_scraper - WARNING - HTML 추출 실패: https://n.news.naver.com/mnews/article/comment/023/0003908588?sid=102
+2025-06-09 17:55:42,621 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 17:55:42,622 - naver_scraper - INFO - HTML 추출 완료: 성공 1개, 실패 1개
+2025-06-09 17:55:42,622 - naver_scraper - INFO - 통합 HTML 저장 완료: output//naver_news_combined_20250609_175542.html
+2025-06-09 17:55:42,622 - naver_scraper - INFO - 총 1개 기사, 파일 크기: 4,922 문자
+2025-06-09 17:55:42,622 - naver_scraper - INFO - HTML 추출 완료!
+2025-06-09 17:55:42,622 - naver_scraper - INFO - 소요 시간: 0:00:57.800825
+2025-06-09 17:55:42,622 - naver_scraper - INFO - 성공: 1개
+2025-06-09 17:55:42,622 - naver_scraper - INFO - 실패: 1개
+2025-06-09 17:55:42,622 - naver_scraper - INFO - 성공률: 50.0%
+2025-06-09 17:58:26,239 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 17:58:26,255 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6618890240}
+2025-06-09 17:58:26,256 - naver_scraper - INFO - HTML 추출 시작: 2개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 17:58:27,064 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 17:58:27,558 - naver_scraper - INFO - HTML 추출 성공 (div#newsct_article): https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 17:58:30,860 - naver_scraper - INFO - HTML 추출 성공 (div#newsct_article): https://n.news.naver.com/mnews/article/023/0003908588?sid=102
+2025-06-09 17:58:33,970 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 17:58:33,970 - naver_scraper - INFO - HTML 추출 완료: 성공 2개, 실패 0개
+2025-06-09 17:58:33,970 - naver_scraper - INFO - 통합 HTML 저장 완료: output//naver_news_combined_20250609_175833.html
+2025-06-09 17:58:33,970 - naver_scraper - INFO - 총 2개 기사, 파일 크기: 7,093 문자
+2025-06-09 17:58:33,970 - naver_scraper - INFO - HTML 추출 완료!
+2025-06-09 17:58:33,970 - naver_scraper - INFO - 소요 시간: 0:00:07.714350
+2025-06-09 17:58:33,970 - naver_scraper - INFO - 성공: 2개
+2025-06-09 17:58:33,970 - naver_scraper - INFO - 실패: 0개
+2025-06-09 17:58:33,970 - naver_scraper - INFO - 성공률: 100.0%

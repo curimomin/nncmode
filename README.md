@@ -4,6 +4,10 @@
 ## Notice
   1. 매번 작업할 때마다 source venv/bin/activate 실행 필요
 
+
+## how to open html file
+open -a "Google Chrome" output/naver_news_combined_20250609_175833.html
+
 ## memo
   1. 프로젝트 폴더로 이동
     cd /Users/curimomin/Desktop/side_projects/nncmode
