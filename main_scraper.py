@@ -1,0 +1,669 @@
+"""
+네이버 뉴스 통합 크롤러 메인 모듈
+기사 정보 + 댓글 데이터를 articles.csv와 comments.csv로 저장
+"""
+
+import argparse
+import logging
+import time
+import sys
+import csv
+import re
+from datetime import datetime
+from typing import List, Dict, Any, Optional
+from urllib.parse import urlparse
+from pathlib import Path
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
+from webdriver_manager.chrome import ChromeDriverManager
+from tqdm import tqdm
+import psutil
+
+from utils import (
+    load_config, load_urls, setup_logger, create_output_directory,
+    validate_config, get_system_info
+)
+
+class NaverNewsMainScraper:
+    """네이버 뉴스 통합 크롤러 클래스"""
+
+    def __init__(self, config: Dict[str, Any]):
+        """
+        크롤러 초기화
+
+        Args:
+            config: 설정 딕셔너리
+        """
+        self.config = config
+        self.logger = logging.getLogger('naver_scraper')
+        self.articles_data = []
+        self.comments_data = []
+        self.failed_urls = []
+        self.selectors = config['naver_selectors']
+        self.ui_labels = config['ui_labels']
+
+        # ID 카운터
+        self.article_id_counter = 1
+        self.comment_id_counter = 1
+
+    def _create_driver(self) -> webdriver.Chrome:
+        """Chrome WebDriver 생성"""
+        chrome_options = Options()
+
+        # 설정에서 Chrome 옵션 추가
+        for option in self.config.get('chrome_options', []):
+            chrome_options.add_argument(option)
+
+        # 헤드리스 모드 설정
+        if self.config['scraping'].get('headless', True):
+            chrome_options.add_argument('--headless')
+
+        # ChromeDriver 서비스 생성
+        service = Service(ChromeDriverManager().install())
+
+        # WebDriver 생성
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+
+        # Selenium 설정 적용
+        selenium_config = self.config['selenium']
+        driver.implicitly_wait(selenium_config.get('implicit_wait', 10))
+        driver.set_page_load_timeout(
+            selenium_config.get('page_load_timeout', 30))
+        driver.set_script_timeout(selenium_config.get('script_timeout', 30))
+
+        # 윈도우 크기 설정
+        window_size = selenium_config.get('window_size', {})
+        if window_size:
+            driver.set_window_size(
+                window_size.get('width', 1920),
+                window_size.get('height', 1080)
+            )
+
+        return driver
+
+    def _extract_text_by_selector(self, driver: webdriver.Chrome, selector: str) -> str:
+        """
+        CSS 선택자로 텍스트 추출
+
+        Args:
+            driver: WebDriver 인스턴스
+            selector: CSS 선택자 (여러 선택자를 콤마로 구분)
+
+        Returns:
+            추출된 텍스트
+        """
+        selectors = [s.strip() for s in selector.split(',')]
+
+        for sel in selectors:
+            try:
+                elements = driver.find_elements(By.CSS_SELECTOR, sel)
+                if elements:
+                    # 첫 번째 매칭 요소의 텍스트 반환
+                    text = elements[0].get_attribute(
+                        'textContent') or elements[0].text
+                    return text.strip()
+            except Exception as e:
+                self.logger.debug(f"선택자 '{sel}' 실패: {e}")
+                continue
+
+        return ""
+
+    def _extract_number_from_text(self, text: str) -> str:
+        """텍스트에서 숫자만 추출"""
+        if not text:
+            return ""
+
+        numbers = re.findall(r'\d+', text)
+        return numbers[0] if numbers else ""
+
+    def _extract_article_data(self, driver: webdriver.Chrome, url: str) -> Optional[Dict[str, Any]]:
+        """
+        기사 페이지에서 기본 정보 추출
+
+        Args:
+            driver: WebDriver 인스턴스
+            url: 기사 URL
+
+        Returns:
+            추출된 기사 데이터
+        """
+        try:
+            # 페이지 로드
+            driver.get(url)
+
+            # 페이지 로드 완료 대기
+            WebDriverWait(driver, self.config['selenium']['page_load_timeout']).until(
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
+            )
+
+            scraped_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+            # 기본 데이터 추출
+            article_data = {
+                'article_id': self.article_id_counter,
+                'url': url,
+                'title': self._extract_text_by_selector(driver, self.selectors['article']['title']),
+                'content': self._extract_text_by_selector(driver, self.selectors['article']['content']),
+                'author': self._extract_text_by_selector(driver, self.selectors['article']['author']),
+                'publish_date': self._extract_text_by_selector(driver, self.selectors['article']['publish_date']),
+                'category': self._extract_text_by_selector(driver, self.selectors['article']['category']),
+                'like_count': self._extract_number_from_text(
+                    self._extract_text_by_selector(
+                        driver, self.selectors['article']['like_count'])
+                ),
+                'comment_count': self._extract_number_from_text(
+                    self._extract_text_by_selector(
+                        driver, self.selectors['article']['comment_count'])
+                ),
+                'scraped_at': scraped_at
+            }
+
+            # 댓글 통계 필드 초기화 (빈 값)
+            article_data.update({
+                'active_comment_count': "",
+                'deleted_comment_count': "",
+                'removed_comment_count': "",
+                'male_ratio': "",
+                'female_ratio': "",
+                'age_10s_ratio': "",
+                'age_20s_ratio': "",
+                'age_30s_ratio': "",
+                'age_40s_ratio': "",
+                'age_50s_ratio': "",
+                'age_60plus_ratio': ""
+            })
+
+            # 필수 필드 검증
+            if not article_data['title']:
+                self.logger.warning(f"제목이 없는 기사: {url}")
+                return None
+
+            self.logger.debug(f"기사 데이터 추출 성공: {url}")
+            return article_data
+
+        except Exception as e:
+            self.logger.error(f"기사 데이터 추출 실패 ({url}): {e}")
+            return None
+
+    def _navigate_to_comments_page(self, driver: webdriver.Chrome) -> bool:
+        """
+        기사 페이지에서 댓글 페이지로 이동
+
+        Args:
+            driver: WebDriver 인스턴스
+
+        Returns:
+            댓글 페이지 이동 성공 여부
+        """
+        try:
+            # 댓글 더보기 버튼 찾기
+            comment_button = driver.find_element(
+                By.CSS_SELECTOR,
+                self.selectors['comment_navigation']['article_to_comment_button']
+            )
+
+            if comment_button.is_displayed():
+                comment_button.click()
+                self.logger.debug("댓글 페이지로 이동 버튼 클릭")
+
+                # 페이지 로드 대기
+                time.sleep(3)
+                return True
+            else:
+                self.logger.warning("댓글 버튼이 보이지 않음")
+                return False
+
+        except NoSuchElementException:
+            self.logger.warning("댓글 더보기 버튼을 찾을 수 없음")
+            return False
+        except Exception as e:
+            self.logger.error(f"댓글 페이지 이동 실패: {e}")
+            return False
+
+    def _load_all_comments(self, driver: webdriver.Chrome) -> None:
+        """
+        댓글 페이지에서 모든 댓글 로드 (더보기 반복 클릭)
+
+        Args:
+            driver: WebDriver 인스턴스
+        """
+        try:
+            while True:
+                try:
+                    # 댓글 페이지의 더보기 버튼 찾기
+                    more_button = driver.find_element(
+                        By.CSS_SELECTOR,
+                        self.selectors['comment_navigation']['comment_page_more_button']
+                    )
+
+                    if more_button.is_displayed():
+                        more_button.click()
+                        self.logger.debug("댓글 더보기 버튼 클릭")
+                        time.sleep(2)  # 로딩 대기
+                    else:
+                        break
+
+                except NoSuchElementException:
+                    break  # 더보기 버튼이 없으면 모든 댓글 로드 완료
+
+        except Exception as e:
+            self.logger.error(f"댓글 로드 중 오류: {e}")
+
+    def _extract_comment_stats(self, driver: webdriver.Chrome, article_data: Dict[str, Any]) -> None:
+        """
+        댓글 일반통계 정보 추출 및 기사 데이터 업데이트
+
+        Args:
+            driver: WebDriver 인스턴스
+            article_data: 업데이트할 기사 데이터
+        """
+        try:
+            stat_items = driver.find_elements(
+                By.CSS_SELECTOR, self.selectors['comment_stats']['stat_count_info'])
+
+            # 기본값 설정
+            article_data['active_comment_count'] = 0
+            article_data['deleted_comment_count'] = 0
+            article_data['removed_comment_count'] = 0
+
+            for item in stat_items:
+                title = self._extract_text_by_selector(
+                    item, self.selectors['comment_stats']['stat_title'])
+                value_text = self._extract_text_by_selector(
+                    item, self.selectors['comment_stats']['stat_value'])
+                value = self._extract_number_from_text(value_text)
+
+                if self.ui_labels['comments']['current_comment_count'] in title:
+                    article_data['active_comment_count'] = value
+                elif self.ui_labels['comments']['deleted_comment_count'] in title:
+                    article_data['deleted_comment_count'] = value
+                elif self.ui_labels['comments']['removed_comment_count'] in title:
+                    article_data['removed_comment_count'] = value
+
+            self.logger.debug("댓글 일반통계 추출 완료")
+
+        except Exception as e:
+            self.logger.warning(f"댓글 일반통계 추출 실패: {e}")
+
+    def _extract_comment_demographic_stats(self, driver: webdriver.Chrome, article_data: Dict[str, Any]) -> None:
+        """
+        댓글 상세통계 정보 추출 및 기사 데이터 업데이트
+
+        Args:
+            driver: WebDriver 인스턴스
+            article_data: 업데이트할 기사 데이터
+        """
+        try:
+            chart_wrap_element = driver.find_element(By.CSS_SELECTOR, self.selectors['comment_stats']['demographic_stats_container'])
+            
+            if not chart_wrap_element.is_displayed():
+                self.logger.info("댓글 상세통계 차트 요소를 찾을 수 없음")
+                return
+            
+            # 성별 비율 추출
+            article_data['male_ratio'] = self._extract_number_from_text(
+                self._extract_text_by_selector(
+                    driver, self.selectors['comment_stats']['male_ratio'])
+            )
+            article_data['female_ratio'] = self._extract_number_from_text(
+                self._extract_text_by_selector(
+                    driver, self.selectors['comment_stats']['female_ratio'])
+            )
+
+            # 연령대 비율 추출
+            age_chart_container = driver.find_element(
+                By.CSS_SELECTOR, ".u_cbox_chart_age")
+            age_items = age_chart_container.find_elements(
+                By.CSS_SELECTOR, ".u_cbox_chart_progress")
+
+            for item in age_items:
+                age_text = self._extract_text_by_selector(
+                    item, ".u_cbox_chart_cnt span")
+                percentage_text = self._extract_text_by_selector(
+                    item, ".u_cbox_chart_per")
+                percentage = self._extract_number_from_text(percentage_text)
+
+                if self.ui_labels['comments']['10s'] in age_text:
+                    article_data['age_10s_ratio'] = percentage
+                elif self.ui_labels['comments']['20s'] in age_text:
+                    article_data['age_20s_ratio'] = percentage
+                elif self.ui_labels['comments']['30s'] in age_text:
+                    article_data['age_30s_ratio'] = percentage
+                elif self.ui_labels['comments']['40s'] in age_text:
+                    article_data['age_40s_ratio'] = percentage
+                elif self.ui_labels['comments']['50s'] in age_text:
+                    article_data['age_50s_ratio'] = percentage
+                elif self.ui_labels['comments']['60s'] in age_text:
+                    article_data['age_60plus_ratio'] = percentage
+
+        except Exception as e:
+            self.logger.warning(f"댓글 상세통계 추출 실패: {e}")
+
+    def _extract_comments_data(self, driver: webdriver.Chrome, article_id: int) -> None:
+        """
+        댓글 데이터 추출
+
+        Args:
+            driver: WebDriver 인스턴스
+            article_id: 기사 ID
+        """
+        try:
+            scraped_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+            # 모든 댓글 요소 찾기
+            comment_elements = driver.find_elements(
+                By.CSS_SELECTOR,
+                self.selectors['comments']['comment_list']
+            )
+
+            self.logger.info(f"발견된 댓글 수: {len(comment_elements)}")
+
+            for comment_element in comment_elements:
+                try:
+                    # data-info 속성에서 댓글 정보 추출
+                    data_info = comment_element.get_attribute('data-info')
+                    if not data_info:
+                        continue
+
+                    # replyLevel 확인 (1: 원댓글, 2: 답글)
+                    if 'replyLevel:1' in data_info:
+                        comment_type = "comment"
+                        parent_comment_id = ""
+                    elif 'replyLevel:2' in data_info:
+                        comment_type = "reply"
+                        # parentCommentNo에서 부모 댓글 찾기
+                        parent_match = re.search(
+                            r"parentCommentNo:'(\d+)'", data_info)
+                        parent_comment_id = parent_match.group(
+                            1) if parent_match else ""
+                    else:
+                        continue
+
+                    # 삭제된 댓글인지 확인
+                    is_deleted = 'deleted:true' in data_info
+
+                    if is_deleted:
+                        # 삭제된 댓글의 경우 제한된 정보만 추출
+                        content = "삭제된 댓글입니다"
+                        author = ""
+                        like_count = ""
+                        dislike_count = ""
+                    else:
+                        # 일반 댓글 정보 추출
+                        content = self._extract_text_by_selector(
+                            comment_element, self.selectors['comments']['comment_content'])
+                        author = self._extract_text_by_selector(
+                            comment_element, self.selectors['comments']['comment_author'])
+                        like_count = self._extract_number_from_text(
+                            self._extract_text_by_selector(
+                                comment_element, self.selectors['comments']['comment_like'])
+                        )
+                        dislike_count = self._extract_number_from_text(
+                            self._extract_text_by_selector(
+                                comment_element, self.selectors['comments']['comment_dislike'])
+                        )
+
+                    # 답글 수 추출
+                    reply_count = self._extract_number_from_text(
+                        self._extract_text_by_selector(
+                            comment_element, self.selectors['comments']['reply_count'])
+                    ) if comment_type == "comment" else "0"
+
+                    # 작성 날짜 추출
+                    created_at = self._extract_text_by_selector(
+                        comment_element, self.selectors['comments']['comment_date'])
+
+                    # 댓글 데이터 생성
+                    comment_data = {
+                        'article_id': article_id,
+                        'comment_id': self.comment_id_counter,
+                        'parent_comment_id': parent_comment_id,
+                        'comment_type': comment_type,
+                        'content': content,
+                        'author': author,
+                        'like_count': like_count,
+                        'dislike_count': dislike_count,
+                        'reply_count': reply_count,
+                        'created_at': created_at,
+                        'scraped_at': scraped_at
+                    }
+
+                    self.comments_data.append(comment_data)
+                    self.comment_id_counter += 1
+
+                except Exception as e:
+                    self.logger.warning(f"개별 댓글 처리 실패: {e}")
+                    continue
+
+            self.logger.debug(f"댓글 추출 완료: {len(comment_elements)}개")
+
+        except Exception as e:
+            self.logger.error(f"댓글 데이터 추출 실패: {e}")
+
+    def _process_single_url(self, driver: webdriver.Chrome, url: str) -> bool:
+        """
+        단일 URL의 기사 + 댓글 처리
+
+        Args:
+            driver: WebDriver 인스턴스
+            url: 처리할 URL
+
+        Returns:
+            처리 성공 여부
+        """
+        try:
+            self.logger.info(f"처리 시작: {url}")
+
+            # 1. 기사 데이터 추출
+            article_data = self._extract_article_data(driver, url)
+            if not article_data:
+                return False
+
+            current_article_id = article_data['article_id']
+
+            # 2. 댓글 통계 추출 및 기사 데이터 업데이트
+            self._extract_comment_stats(driver, article_data)
+            
+            # 3. 댓글 상세 통계 추출
+            self._extract_comment_demographic_stats(driver, article_data)
+
+            # 4. 댓글 페이지로 이동
+            if self._navigate_to_comments_page(driver):
+                # 5. 모든 댓글 로드
+                self._load_all_comments(driver)
+
+                # 6. 댓글 데이터 추출
+                self._extract_comments_data(driver, current_article_id)
+            else:
+                self.logger.warning(f"댓글 페이지 접근 실패, 기사 데이터만 저장: {url}")
+
+            # 7. 기사 데이터 저장
+            self.articles_data.append(article_data)
+            self.article_id_counter += 1
+
+            self.logger.info(f"처리 완료: {url}")
+            return True
+
+        except Exception as e:
+            self.logger.error(f"URL 처리 실패 ({url}): {e}")
+            return False
+
+    def scrape_urls(self, urls: List[str]) -> None:
+        """
+        URL 목록 크롤링 (순차 처리)
+
+        Args:
+            urls: 크롤링할 URL 리스트
+        """
+        delay = self.config['scraping'].get('delay_between_requests', 3.0)
+
+        self.logger.info(
+            f"통합 크롤링 시작: {len(urls)}개 URL (순차 처리, 요청 간격: {delay}초)")
+
+        # 단일 WebDriver 생성
+        driver = None
+        try:
+            driver = self._create_driver()
+            self.logger.info("Chrome 브라우저 시작")
+
+            # 진행률 표시를 위한 tqdm 설정
+            for url in tqdm(urls, desc="통합 크롤링 진행", unit="URL"):
+                try:
+                    success = self._process_single_url(driver, url)
+                    if not success:
+                        self.failed_urls.append(url)
+
+                except Exception as e:
+                    self.logger.error(f"URL 처리 오류 ({url}): {e}")
+                    self.failed_urls.append(url)
+
+                # 서버 부하 방지를 위한 지연
+                if delay > 0:
+                    time.sleep(delay)
+
+        except Exception as e:
+            self.logger.error(f"WebDriver 생성/사용 오류: {e}")
+            raise
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                    self.logger.info("Chrome 브라우저 종료")
+                except:
+                    pass
+
+        self.logger.info(
+            f"통합 크롤링 완료: 성공 {len(self.articles_data)}개, 실패 {len(self.failed_urls)}개")
+
+    def save_csv_files(self, output_dir: str) -> None:
+        """
+        articles.csv와 comments.csv 파일 저장
+
+        Args:
+            output_dir: 출력 디렉토리
+        """
+        try:
+            # articles.csv 저장
+            if self.articles_data:
+                articles_file = Path(output_dir) / "articles.csv"
+                with open(articles_file, 'w', newline='', encoding='utf-8') as f:
+                    fieldnames = [
+                        'article_id', 'url', 'title', 'content', 'author', 'publish_date', 'category',
+                        'like_count', 'comment_count', 'active_comment_count', 'deleted_comment_count',
+                        'removed_comment_count', 'male_ratio', 'female_ratio', 'age_10s_ratio',
+                        'age_20s_ratio', 'age_30s_ratio', 'age_40s_ratio', 'age_50s_ratio',
+                        'age_60plus_ratio', 'scraped_at'
+                    ]
+                    writer = csv.DictWriter(
+                        f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+                    writer.writeheader()
+                    writer.writerows(self.articles_data)
+
+                self.logger.info(
+                    f"articles.csv 저장 완료: {len(self.articles_data)}개 기사")
+
+            # comments.csv 저장
+            if self.comments_data:
+                comments_file = Path(output_dir) / "comments.csv"
+                with open(comments_file, 'w', newline='', encoding='utf-8') as f:
+                    fieldnames = [
+                        'article_id', 'comment_id', 'parent_comment_id', 'comment_type',
+                        'content', 'author', 'like_count', 'dislike_count', 'reply_count',
+                        'created_at', 'scraped_at'
+                    ]
+                    writer = csv.DictWriter(
+                        f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+                    writer.writeheader()
+                    writer.writerows(self.comments_data)
+
+                self.logger.info(
+                    f"comments.csv 저장 완료: {len(self.comments_data)}개 댓글")
+
+        except Exception as e:
+            self.logger.error(f"CSV 파일 저장 실패: {e}")
+            raise
+
+
+def main():
+    """메인 함수"""
+    parser = argparse.ArgumentParser(description='네이버 뉴스 통합 크롤러 (기사 + 댓글)')
+    parser.add_argument('--urls', required=True, help='URL 목록 파일 경로')
+    parser.add_argument('--config', default='config.json', help='설정 파일 경로')
+    parser.add_argument('--output', default='output/', help='출력 디렉토리')
+
+    args = parser.parse_args()
+
+    print("네이버 뉴스 통합 크롤러 시작")
+
+    try:
+        # 설정 로드 및 검증
+        config = load_config(args.config)
+        if not validate_config(config):
+            sys.exit(1)
+
+        # 로깅 설정
+        logger = setup_logger(config)
+        logger.info("네이버 뉴스 통합 크롤러 시작")
+
+        # 시스템 정보 로그
+        system_info = get_system_info()
+        logger.info(f"시스템 정보: {system_info}")
+
+        # URL 로드
+        urls = load_urls(args.urls)
+        if not urls:
+            logger.error("크롤링할 URL이 없습니다")
+            sys.exit(1)
+
+        # 출력 디렉토리 생성
+        output_dir = create_output_directory(args.output)
+
+        # 통합 크롤러 실행
+        scraper = NaverNewsMainScraper(config)
+        start_time = datetime.now()
+
+        scraper.scrape_urls(urls)
+
+        end_time = datetime.now()
+        duration = end_time - start_time
+
+        # CSV 파일 저장
+        scraper.save_csv_files(output_dir)
+
+        # 실패한 URL 저장
+        if scraper.failed_urls:
+            from utils import save_failed_urls
+            save_failed_urls(scraper.failed_urls, output_dir)
+
+        # 최종 결과 리포트
+        logger.info(f"통합 크롤링 완료!")
+        logger.info(f"소요 시간: {duration}")
+        logger.info(f"성공한 기사: {len(scraper.articles_data)}개")
+        logger.info(f"수집한 댓글: {len(scraper.comments_data)}개")
+        logger.info(f"실패한 URL: {len(scraper.failed_urls)}개")
+
+        if scraper.articles_data:
+            success_rate = len(scraper.articles_data) / len(urls) * 100
+            logger.info(f"성공률: {success_rate:.1f}%")
+
+            # 댓글 통계
+            avg_comments = len(scraper.comments_data) / \
+                len(scraper.articles_data)
+            logger.info(f"평균 댓글 수: {avg_comments:.1f}개/기사")
+
+    except KeyboardInterrupt:
+        print("\n크롤링이 사용자에 의해 중단되었습니다.")
+        sys.exit(0)
+    except Exception as e:
+        print(f"오류 발생: {e}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
