@@ -1,0 +1,50 @@
+{
+  "scraping": {
+    "delay_between_requests": 3.0,
+    "timeout": 30,
+    "retry_count": 5,
+    "max_workers": 1,
+    "headless": true
+  },
+  "selenium": {
+    "implicit_wait": 10,
+    "page_load_timeout": 30,
+    "script_timeout": 30,
+    "window_size": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "output": {
+    "format": "csv",
+    "filename_prefix": "naver_news",
+    "include_timestamp": true,
+    "fields": [
+      "title",
+      "content",
+      "author", 
+      "publish_date",
+      "url",
+      "category"
+    ]
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "scraper.log",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "chrome_options": [
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    "--disable-gpu",
+    "--window-size=1920,1080",
+    "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  ],
+  "naver_selectors": {
+    "title": "h2.media_end_head_headline, h3.tts_head",
+    "content": "div#newsct_article, div.news_end_body_container",
+    "author": "em.media_end_head_journalist_name, span.by_line",
+    "publish_date": "span.media_end_head_info_datestamp_time, span.t11",
+    "category": "em.media_end_categorize_item"
+  }
+}

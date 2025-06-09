@@ -1,1 +1,21 @@
 # Welcome to NNC_MODE
+
+
+## Notice
+  1. 매번 작업할 때마다 source venv/bin/activate 실행 필요
+
+## memo
+  1. 프로젝트 폴더로 이동
+    cd /Users/curimomin/Desktop/side_projects/nncmode
+
+  2. 가상환경 생성
+    python3 -m venv venv
+
+  3. 가상환경 활성화
+    source venv/bin/activate
+
+  4. 패키지 설치
+    pip install -r requirements.txt
+
+  5. 스크립트 실행
+    python scraper.py --urls urls.txt
