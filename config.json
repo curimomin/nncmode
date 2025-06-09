@@ -4,7 +4,7 @@
     "timeout": 30,
     "retry_count": 5,
     "max_workers": 1,
-    "headless": true
+    "headless": false
   },
   "selenium": {
     "implicit_wait": 10,
@@ -22,7 +22,7 @@
     "fields": [
       "title",
       "content",
-      "author", 
+      "author",
       "publish_date",
       "url",
       "category"
@@ -36,15 +36,55 @@
   "chrome_options": [
     "--no-sandbox",
     "--disable-dev-shm-usage",
-    "--disable-gpu",
     "--window-size=1920,1080",
-    "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    "--disable-blink-features=AutomationControlled",
+    "--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
   ],
   "naver_selectors": {
-    "title": "h2.media_end_head_headline, h3.tts_head",
-    "content": "div#newsct_article, div.news_end_body_container",
-    "author": "em.media_end_head_journalist_name, span.by_line",
-    "publish_date": "span.media_end_head_info_datestamp_time, span.t11",
-    "category": "em.media_end_categorize_item"
+    "article": {
+      "title": "h2#title_area.media_end_head_headline span, h2.media_end_head_headline span, h3.tts_head",
+      "content": "div#newsct_article, article#dic_area, div.news_end_body_container",
+      "author": "em.media_end_head_journalist_name, span.by_line",
+      "publish_date": "span.media_end_head_info_datestamp_time, span.t11",
+      "category": "em.media_end_categorize_item",
+      "like_count": "span.u_likeit_text._count.num, button.u_likeit_list_btn em.u_cnt, .btn_good em",
+      "comment_count": "span.u_cbox_count, .u_cbox_count, #comment_count, a.media_end_head_cmtcount_button, .media_end_head_cmtcount_button"
+    },
+    "comment_stats": {
+      "_comment_status": "댓글 일반통계 선택자",
+      "stat_count_info": ".u_cbox_count_info",
+      "stat_title": ".u_cbox_info_title",
+      "stat_value": ".u_cbox_info_txt",
+      "_comment_demographic_stats": "댓글 상세통계 선택자",
+      "demographic_stats_container": ".u_cbox_chart_wrap",
+      "male_ratio": ".u_cbox_chart_male .u_cbox_chart_per",
+      "female_ratio": ".u_cbox_chart_female .u_cbox_chart_per"
+    },
+    "comment_navigation": {
+      "article_to_comment_button": "a.media_end_head_cmtcount_button"
+    },
+    "comments": {
+      "comment_list": "ul.u_cbox_list li.u_cbox_comment",
+      "comment_content": ".u_cbox_contents",
+      "comment_author": ".u_cbox_nick",
+      "comment_date": ".u_cbox_date",
+      "comment_like": ".u_cbox_cnt_recomm",
+      "comment_dislike": ".u_cbox_cnt_unrecomm",
+      "reply_count": ".u_cbox_reply_cnt",
+      "comment_id": "[data-info*='commentNo']"
+    }
+  },
+  "ui_labels": {
+    "comments": {
+      "current_comment_count": "현재 댓글",
+      "deleted_comment_count": "작성자 삭제",
+      "removed_comment_count": "규정 미준수",
+      "10s": "10대",
+      "20s": "20대",
+      "30s": "30대",
+      "40s": "40대",
+      "50s": "50대",
+      "60s": "60대"
+    }
   }
 }

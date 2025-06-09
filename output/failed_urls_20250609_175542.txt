@@ -1,4 +1,0 @@
-# 크롤링 실패한 URL 목록
-# 생성 시간: 2025-06-09 17:55:42
-
-https://n.news.naver.com/mnews/article/comment/023/0003908588?sid=102

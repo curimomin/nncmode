@@ -46,3 +46,541 @@
 2025-06-09 17:58:33,970 - naver_scraper - INFO - 성공: 2개
 2025-06-09 17:58:33,970 - naver_scraper - INFO - 실패: 0개
 2025-06-09 17:58:33,970 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 22:21:40,484 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 22:21:40,501 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5370560512}
+2025-06-09 22:21:40,502 - naver_scraper - INFO - 통합 크롤링 시작: 1개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 22:21:41,607 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 22:21:41,620 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:21:42,168 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:21:42,168 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:21:42,168 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:21:45,265 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 통합 크롤링 완료: 성공 1개, 실패 0개
+2025-06-09 22:21:45,265 - naver_scraper - INFO - articles.csv 저장 완료: 1개 기사
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 소요 시간: 0:00:04.763288
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 성공한 기사: 1개
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 22:21:45,265 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 22:31:02,209 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 22:31:02,221 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5351620608}
+2025-06-09 22:31:02,222 - naver_scraper - INFO - 통합 크롤링 시작: 1개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 22:31:03,310 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 22:31:03,324 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:31:03,897 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:31:03,897 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:31:03,897 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:31:06,994 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 22:31:06,994 - naver_scraper - INFO - 통합 크롤링 완료: 성공 1개, 실패 0개
+2025-06-09 22:31:06,995 - naver_scraper - INFO - articles.csv 저장 완료: 1개 기사
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 소요 시간: 0:00:04.772822
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 성공한 기사: 1개
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 22:31:06,995 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 22:36:04,866 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 22:36:04,878 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5437063168}
+2025-06-09 22:36:04,878 - naver_scraper - INFO - 통합 크롤링 시작: 1개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 22:36:05,933 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 22:36:05,945 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:36:06,575 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:36:06,575 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:36:06,575 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:36:09,676 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 통합 크롤링 완료: 성공 1개, 실패 0개
+2025-06-09 22:36:09,676 - naver_scraper - INFO - articles.csv 저장 완료: 1개 기사
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 소요 시간: 0:00:04.797361
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 성공한 기사: 1개
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 22:36:09,676 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 22:36:45,840 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 22:36:45,851 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5231640576}
+2025-06-09 22:36:45,852 - naver_scraper - INFO - 통합 크롤링 시작: 2개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 22:36:46,892 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 22:36:46,904 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:36:47,588 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:36:47,588 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:36:47,588 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:36:50,593 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 22:36:51,170 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:36:51,170 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 22:36:51,170 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 22:36:54,273 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 22:36:54,273 - naver_scraper - INFO - 통합 크롤링 완료: 성공 2개, 실패 0개
+2025-06-09 22:36:54,274 - naver_scraper - INFO - articles.csv 저장 완료: 2개 기사
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 소요 시간: 0:00:08.421815
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 성공한 기사: 2개
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 22:36:54,274 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 22:42:50,472 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 22:42:50,484 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5315575808}
+2025-06-09 22:42:50,485 - naver_scraper - INFO - 통합 크롤링 시작: 2개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 22:42:51,534 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 22:42:51,547 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:42:52,220 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:42:52,220 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:42:52,220 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 22:42:55,226 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 22:42:55,700 - naver_scraper - ERROR - 댓글 페이지 이동 실패: 'comment_navigation'
+2025-06-09 22:42:55,700 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 22:42:55,700 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 22:42:58,805 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 22:42:58,805 - naver_scraper - INFO - 통합 크롤링 완료: 성공 2개, 실패 0개
+2025-06-09 22:42:58,806 - naver_scraper - INFO - articles.csv 저장 완료: 2개 기사
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 소요 시간: 0:00:08.320678
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 성공한 기사: 2개
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 22:42:58,806 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 23:03:46,193 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 23:03:46,207 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5293293568}
+2025-06-09 23:03:46,207 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 23:03:47,325 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 23:03:47,338 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:03:48,229 - naver_scraper - ERROR - 댓글 페이지 이동 실패: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=137.0.7151.69)
+Stacktrace:
+0   chromedriver                        0x00000001028ce654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x00000001028c68c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x000000010241a714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x000000010246102c cxxbridge1$string$len + 379476
+4   chromedriver                        0x00000001024a2de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x00000001024559c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000102892278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x000000010289550c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000102873a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000102895d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000102864d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x00000001028b5d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x00000001028b5eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x00000001028c6514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-09 23:03:48,229 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:03:48,229 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:03:51,236 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:03:51,767 - naver_scraper - ERROR - 댓글 페이지 이동 실패: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=137.0.7151.69)
+Stacktrace:
+0   chromedriver                        0x00000001028ce654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x00000001028c68c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x000000010241a714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x000000010246102c cxxbridge1$string$len + 379476
+4   chromedriver                        0x00000001024a2de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x00000001024559c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000102892278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x000000010289550c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000102873a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000102895d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000102864d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x00000001028b5d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x00000001028b5eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x00000001028c6514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-09 23:03:51,767 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:03:51,767 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:03:54,773 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:03:55,304 - naver_scraper - ERROR - 댓글 페이지 이동 실패: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=137.0.7151.69)
+Stacktrace:
+0   chromedriver                        0x00000001028ce654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x00000001028c68c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x000000010241a714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x000000010246102c cxxbridge1$string$len + 379476
+4   chromedriver                        0x00000001024a2de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x00000001024559c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000102892278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x000000010289550c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000102873a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000102895d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000102864d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x00000001028b5d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x00000001028b5eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x00000001028c6514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-09 23:03:55,304 - naver_scraper - WARNING - 댓글 페이지 접근 실패, 기사 데이터만 저장: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:03:55,304 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:03:58,415 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 23:03:58,415 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-09 23:03:58,415 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-09 23:03:58,415 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 23:03:58,416 - naver_scraper - INFO - 소요 시간: 0:00:12.208142
+2025-06-09 23:03:58,416 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-09 23:03:58,416 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 23:03:58,416 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 23:03:58,416 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 23:03:58,416 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 23:06:34,343 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 23:06:34,355 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5398724608}
+2025-06-09 23:06:34,355 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 23:06:35,399 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 23:06:35,412 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:06:39,535 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:06:59,624 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:06:59,635 - naver_scraper - INFO - 발견된 댓글 수: 5
+2025-06-09 23:07:09,834 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:07:12,840 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:07:16,875 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:07:36,977 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:07:36,989 - naver_scraper - INFO - 발견된 댓글 수: 9
+2025-06-09 23:07:57,291 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:08:00,296 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:08:04,330 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:08:04,381 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:08:04,387 - naver_scraper - INFO - 발견된 댓글 수: 20
+2025-06-09 23:08:15,036 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:08:18,175 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 23:08:18,175 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-09 23:08:18,175 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-09 23:08:18,176 - naver_scraper - INFO - comments.csv 저장 완료: 34개 댓글
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 소요 시간: 0:01:43.819710
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 수집한 댓글: 34개
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 23:08:18,176 - naver_scraper - INFO - 평균 댓글 수: 11.3개/기사
+2025-06-09 23:23:24,781 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 23:23:24,795 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5341282304}
+2025-06-09 23:23:24,795 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 23:23:25,917 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 23:23:25,931 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:23:46,753 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:23:46,754 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:23:49,760 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:24:10,380 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:24:10,380 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:24:13,386 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:24:14,143 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:24:14,144 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:24:17,259 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 23:24:17,259 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-09 23:24:17,260 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 소요 시간: 0:00:52.463405
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 23:24:17,260 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-09 23:38:46,888 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 23:38:46,900 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6392086528}
+2025-06-09 23:38:46,900 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 23:38:47,940 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 23:38:47,952 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:39:08,766 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:39:12,106 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:39:12,119 - naver_scraper - INFO - 발견된 댓글 수: 5
+2025-06-09 23:39:22,340 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:39:25,342 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:39:46,043 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:39:49,294 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:39:49,302 - naver_scraper - INFO - 발견된 댓글 수: 9
+2025-06-09 23:40:09,603 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:40:12,608 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:40:13,208 - naver_scraper - WARNING - 댓글 통계 추출 실패: 'age_10s_ratio'
+2025-06-09 23:40:16,389 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:40:16,402 - naver_scraper - INFO - 발견된 댓글 수: 20
+2025-06-09 23:40:27,004 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:40:30,184 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 23:40:30,184 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-09 23:40:30,185 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-09 23:40:30,185 - naver_scraper - INFO - comments.csv 저장 완료: 34개 댓글
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 소요 시간: 0:01:43.284168
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 수집한 댓글: 34개
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 23:40:30,185 - naver_scraper - INFO - 평균 댓글 수: 11.3개/기사
+2025-06-09 23:55:33,891 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-09 23:55:33,903 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6387744768}
+2025-06-09 23:55:33,903 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-09 23:55:34,946 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-09 23:55:34,958 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:56:05,794 - naver_scraper - WARNING - 댓글 통계 추출 실패: Message: no such element: Unable to locate element: {"method":"css selector","selector":".u_cbox_chart_age"}
+  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000100dd6654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x0000000100dce8c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x0000000100922714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x00000001009697c0 cxxbridge1$string$len + 381416
+4   chromedriver                        0x00000001009aade8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x000000010095d9c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000100d9a278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x0000000100d9d50c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000100d7ba64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000100d9dd94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000100d6cd58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x0000000100dbdd60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x0000000100dbdeec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x0000000100dce514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-09 23:56:09,096 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:56:09,112 - naver_scraper - INFO - 발견된 댓글 수: 5
+2025-06-09 23:56:19,315 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-09 23:56:22,322 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:56:53,466 - naver_scraper - WARNING - 댓글 통계 추출 실패: Message: no such element: Unable to locate element: {"method":"css selector","selector":".u_cbox_chart_age"}
+  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000100dd6654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x0000000100dce8c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x0000000100922714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x00000001009697c0 cxxbridge1$string$len + 381416
+4   chromedriver                        0x00000001009aade8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x000000010095d9c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000100d9a278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x0000000100d9d50c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000100d7ba64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000100d9dd94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000100d6cd58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x0000000100dbdd60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x0000000100dbdeec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x0000000100dce514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-09 23:56:56,685 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:56:56,701 - naver_scraper - INFO - 발견된 댓글 수: 9
+2025-06-09 23:57:17,038 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-09 23:57:20,044 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:57:24,211 - naver_scraper - ERROR - 댓글 로드 중 오류: 'comment_page_more_button'
+2025-06-09 23:57:24,232 - naver_scraper - INFO - 발견된 댓글 수: 20
+2025-06-09 23:57:34,894 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-09 23:57:38,043 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-09 23:57:38,043 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-09 23:57:38,044 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-09 23:57:38,044 - naver_scraper - INFO - comments.csv 저장 완료: 34개 댓글
+2025-06-09 23:57:38,044 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-09 23:57:38,044 - naver_scraper - INFO - 소요 시간: 0:02:04.140183
+2025-06-09 23:57:38,044 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-09 23:57:38,045 - naver_scraper - INFO - 수집한 댓글: 34개
+2025-06-09 23:57:38,045 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-09 23:57:38,045 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-09 23:57:38,045 - naver_scraper - INFO - 평균 댓글 수: 11.3개/기사
+2025-06-10 00:05:27,831 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:05:27,842 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6225428480}
+2025-06-10 00:05:27,843 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:05:29,392 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:05:29,406 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:06:00,181 - naver_scraper - WARNING - 댓글 상세통계 추출 실패: Message: no such element: Unable to locate element: {"method":"css selector","selector":".u_cbox_chart_age"}
+  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000104b7e654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x0000000104b768c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x00000001046ca714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x00000001047117c0 cxxbridge1$string$len + 381416
+4   chromedriver                        0x0000000104752de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x00000001047059c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000104b42278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x0000000104b4550c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000104b23a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000104b45d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000104b14d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x0000000104b65d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x0000000104b65eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x0000000104b76514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-10 00:06:30,285 - naver_scraper - WARNING - 댓글 상세통계 추출 실패: Message: no such element: Unable to locate element: {"method":"css selector","selector":".u_cbox_chart_age"}
+  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000104b7e654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x0000000104b768c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x00000001046ca714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x00000001047117c0 cxxbridge1$string$len + 381416
+4   chromedriver                        0x0000000104752de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x00000001047059c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000104b42278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x0000000104b4550c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000104b23a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000104b45d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000104b14d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x0000000104b65d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x0000000104b65eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x0000000104b76514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-10 00:06:30,285 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:06:33,290 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:06:41,495 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:06:51,498 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:06:51,509 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6343852032}
+2025-06-10 00:06:51,510 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:06:52,576 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:06:52,587 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:07:23,413 - naver_scraper - WARNING - 댓글 상세통계 추출 실패: Message: no such element: Unable to locate element: {"method":"css selector","selector":".u_cbox_chart_age"}
+  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000105172654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x000000010516a8c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x0000000104cbe714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x0000000104d057c0 cxxbridge1$string$len + 381416
+4   chromedriver                        0x0000000104d46de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x0000000104cf99c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000105136278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x000000010513950c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000105117a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000105139d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000105108d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x0000000105159d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x0000000105159eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x000000010516a514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-10 00:07:30,296 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:10:02,816 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:10:02,827 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6254215168}
+2025-06-10 00:10:02,827 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:10:03,870 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:10:03,880 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:10:04,577 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:10:34,699 - naver_scraper - WARNING - 댓글 상세통계 추출 실패: Message: no such element: Unable to locate element: {"method":"css selector","selector":".u_cbox_chart_age"}
+  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000100aae654 cxxbridge1$str$ptr + 2723108
+1   chromedriver                        0x0000000100aa68c8 cxxbridge1$str$ptr + 2690968
+2   chromedriver                        0x00000001005fa714 cxxbridge1$string$len + 90428
+3   chromedriver                        0x00000001006417c0 cxxbridge1$string$len + 381416
+4   chromedriver                        0x0000000100682de8 cxxbridge1$string$len + 649232
+5   chromedriver                        0x00000001006359c8 cxxbridge1$string$len + 332784
+6   chromedriver                        0x0000000100a72278 cxxbridge1$str$ptr + 2476360
+7   chromedriver                        0x0000000100a7550c cxxbridge1$str$ptr + 2489308
+8   chromedriver                        0x0000000100a53a64 cxxbridge1$str$ptr + 2351412
+9   chromedriver                        0x0000000100a75d94 cxxbridge1$str$ptr + 2491492
+10  chromedriver                        0x0000000100a44d58 cxxbridge1$str$ptr + 2290728
+11  chromedriver                        0x0000000100a95d60 cxxbridge1$str$ptr + 2622512
+12  chromedriver                        0x0000000100a95eec cxxbridge1$str$ptr + 2622908
+13  chromedriver                        0x0000000100aa6514 cxxbridge1$str$ptr + 2690020
+14  libsystem_pthread.dylib             0x0000000199599c0c _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000199594b80 thread_start + 8
+
+2025-06-10 00:10:34,700 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:10:37,706 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:10:38,600 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:10:40,291 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:10:53,499 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:10:53,510 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 6362316800}
+2025-06-10 00:10:53,510 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:10:54,546 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:10:54,557 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:10:55,226 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:10:55,234 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:10:55,234 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:10:58,240 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:10:58,667 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:10:58,672 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:10:58,672 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:11:01,678 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:11:02,141 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:11:02,231 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:11:05,344 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:11:05,344 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-10 00:11:05,345 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 소요 시간: 0:00:11.834051
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-10 00:11:05,345 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-10 00:16:45,585 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:16:45,585 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 00:16:45,598 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5934645248}
+2025-06-10 00:16:45,598 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:16:46,612 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:16:46,625 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:16:47,415 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:16:47,423 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:16:47,423 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:16:50,426 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:16:50,932 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:16:50,938 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:16:50,938 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:16:53,944 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:16:54,435 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:16:54,527 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:16:57,632 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:16:57,632 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-10 00:16:57,633 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 소요 시간: 0:00:12.033991
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-10 00:16:57,633 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-10 00:27:44,615 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:27:44,615 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 00:27:44,626 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5981126656}
+2025-06-10 00:27:44,626 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:27:45,656 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:27:45,669 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:27:46,444 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:27:46,453 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:27:46,453 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:27:49,457 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:27:50,056 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:27:50,062 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:27:50,062 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:27:53,064 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:27:53,614 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:27:53,707 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:27:56,825 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-10 00:27:56,826 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 소요 시간: 0:00:12.199164
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-10 00:27:56,826 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사
+2025-06-10 00:40:57,002 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 00:40:57,002 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 00:40:57,017 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5961302016}
+2025-06-10 00:40:57,017 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 00:40:58,115 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 00:40:58,129 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:40:58,889 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:40:58,897 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:40:58,897 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 00:41:01,898 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:41:02,465 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:41:02,470 - naver_scraper - WARNING - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 00:41:02,470 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 00:41:05,476 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:41:05,984 - naver_scraper - WARNING - 댓글 상세통계 추출시작
+2025-06-10 00:41:06,078 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 00:41:09,187 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 00:41:09,187 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-10 00:41:09,187 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-10 00:41:09,187 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-10 00:41:09,188 - naver_scraper - INFO - 소요 시간: 0:00:12.169383
+2025-06-10 00:41:09,188 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-10 00:41:09,188 - naver_scraper - INFO - 수집한 댓글: 0개
+2025-06-10 00:41:09,188 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-10 00:41:09,188 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-10 00:41:09,188 - naver_scraper - INFO - 평균 댓글 수: 0.0개/기사

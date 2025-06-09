@@ -2,5 +2,6 @@
 # 각 줄에 하나씩 URL을 입력
 
 # URLs
+https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+https://n.news.naver.com/mnews/article/005/0001781600?sid=102
 https://n.news.naver.com/mnews/article/056/0011964101?sid=102
-https://n.news.naver.com/mnews/article/023/0003908588?sid=102
