@@ -1,0 +1,5 @@
+# 네이버 뉴스 URL 목록
+# 각 줄에 하나씩 URL을 입력
+
+# URLs
+"https://n.news.naver.com/mnews/article/056/0011964101?sid=102"
