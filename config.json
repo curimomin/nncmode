@@ -61,7 +61,8 @@
       "female_ratio": ".u_cbox_chart_female .u_cbox_chart_per"
     },
     "comment_navigation": {
-      "article_to_comment_button": "a.media_end_head_cmtcount_button"
+      "article_to_comment_button": "a.media_end_head_cmtcount_button",
+      "comment_page_more_button": "a[data-action='page#more'], .u_cbox_btn_more, .u_cbox_paginate a"
     },
     "comments": {
       "comment_list": "ul.u_cbox_list li.u_cbox_comment",
@@ -72,6 +73,10 @@
       "comment_dislike": ".u_cbox_cnt_unrecomm",
       "reply_count": ".u_cbox_reply_cnt",
       "comment_id": "[data-info*='commentNo']"
+    },
+    "cleanbot": {
+      "cleanbot_container": ".u_cbox_cleanbot",
+      "setting_button": "a.u_cbox_cleanbot_setbutton"
     }
   },
   "ui_labels": {
