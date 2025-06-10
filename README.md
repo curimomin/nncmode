@@ -20,7 +20,10 @@
   5. 패키지 설치
     pip install -r requirements.txt
 
-  6. 스크립트 실행
+  6. 테스트 파일 제거
+    urls/test_1.txt 및 urls/test_2.txt 삭제
+
+  7. 스크립트 실행
     python batch_scraper_runner.py --directory ./urls --pattern "*.txt"
 
 
@@ -39,5 +42,8 @@
   5. 패키지 설치 (필요하다면 pip을 업데이트)
     pip install -r requirements.txt
 
-  6. 스크립트 실행
-    py batch_scraper_runner.py --directory ./urls --pattern "*.txt"
+  6. 테스트 파일 제거
+    urls/test_1.txt 및 urls/test_2.txt 삭제
+
+  7. 스크립트 실행
+    py batch_scraper_runner_win.py --directory ./urls --pattern "*.txt"
