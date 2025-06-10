@@ -1,42 +1,43 @@
 # Welcome to NNC_MODE
+📗 네이버 뉴스 크롤러
 
 
 ## Notice
-  1. 매번 작업할 때마다 source venv/bin/activate 실행 필요
+  1. 작업 전 가상환경 설정과 requirements 설치 필요
 
+## Start Project (macOS)
+  1. git clone [url]
 
-## how to open html file
-open -a "Google Chrome" output/naver_news_combined_20250609_175833.html
-
-## memo
-  1. 프로젝트 폴더로 이동
+  2. 프로젝트 폴더로 이동
     cd /Users/curimomin/Desktop/side_projects/nncmode
 
-  2. 가상환경 생성
+  3. 가상환경 생성
     python3 -m venv venv
 
-  3. 가상환경 활성화
+  4. 가상환경 활성화
     source venv/bin/activate
 
-  4. 패키지 설치
+  5. 패키지 설치
     pip install -r requirements.txt
 
-  5. 스크립트 실행
-    python scraper.py --urls urls.txt
+  6. 스크립트 실행
+    python batch_scraper_runner.py --directory ./urls --pattern "*.txt"
 
 
-## Windows 에서 작업시
+## Start Project (windows)
   1. git clone [url]
-  2. py -m venv venv
-  3. venv/Scripts/activate
 
-### 가상환경 새로 생성
-python -m venv venv
+  2. 프로젝트 폴더로 이동
+    cd /Users/curimomin/Desktop/side_projects/nncmode
 
-### 활성화
-source venv/bin/activate  # Linux/Mac
-### 또는
-venv\Scripts\activate     # Windows
+  3. 가상환경 생성
+    py -m venv venv
 
-### 패키지 설치
-pip install -r requirements.txt
+  4. 가상환경 활성화
+    venv/Scripts/activate
+
+  5. 패키지 설치 (필요하다면 pip을 업데이트)
+    pip install -r requirements.txt
+
+  6. 스크립트 실행
+    py batch_scraper_runner.py --directory ./urls --pattern "*.txt"
