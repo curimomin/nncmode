@@ -30,6 +30,7 @@ from utils import (
     validate_config, get_system_info
 )
 
+
 class NaverNewsMainScraper:
     """네이버 뉴스 통합 크롤러 클래스"""
 
@@ -245,7 +246,7 @@ class NaverNewsMainScraper:
                     if more_button.is_displayed():
                         more_button.click()
                         self.logger.debug("댓글 더보기 버튼 클릭")
-                        time.sleep(2)  # 로딩 대기
+                        time.sleep(3)  # 로딩 대기
                     else:
                         break
 
@@ -263,6 +264,8 @@ class NaverNewsMainScraper:
             driver: WebDriver 인스턴스
             article_data: 업데이트할 기사 데이터
         """
+        
+        
         try:
             stat_items = driver.find_elements(
                 By.CSS_SELECTOR, self.selectors['comment_stats']['stat_count_info'])
@@ -300,12 +303,13 @@ class NaverNewsMainScraper:
             article_data: 업데이트할 기사 데이터
         """
         try:
-            chart_wrap_element = driver.find_element(By.CSS_SELECTOR, self.selectors['comment_stats']['demographic_stats_container'])
-            
+            chart_wrap_element = driver.find_element(
+                By.CSS_SELECTOR, self.selectors['comment_stats']['demographic_stats_container'])
+
             if not chart_wrap_element.is_displayed():
                 self.logger.info("댓글 상세통계 차트 요소를 찾을 수 없음")
                 return
-            
+
             # 성별 비율 추출
             article_data['male_ratio'] = self._extract_number_from_text(
                 self._extract_text_by_selector(
@@ -353,7 +357,11 @@ class NaverNewsMainScraper:
             driver: WebDriver 인스턴스
             article_id: 기사 ID
         """
+        
         try:
+            # WebDriverWait(driver, self.config['selenium']['page_load_timeout']).until(
+            #   EC.presence_of_element_located((By.TAG_NAME, "body")))
+            
             scraped_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
             # 모든 댓글 요소 찾기
@@ -363,27 +371,36 @@ class NaverNewsMainScraper:
             )
 
             self.logger.info(f"발견된 댓글 수: {len(comment_elements)}")
+            
+            comment_count = len(driver.find_elements(By.CSS_SELECTOR, self.selectors['comments']['comment_list']))
 
-            for comment_element in comment_elements:
+            for i in range(comment_count):
+
                 try:
+                  
+                    comment_elements = driver.find_elements(
+                        By.CSS_SELECTOR,
+                        self.selectors['comments']['comment_list'])
+                    comment_element = comment_elements[i]
+
                     # data-info 속성에서 댓글 정보 추출
                     data_info = comment_element.get_attribute('data-info')
                     if not data_info:
                         continue
 
-                    # replyLevel 확인 (1: 원댓글, 2: 답글)
-                    if 'replyLevel:1' in data_info:
-                        comment_type = "comment"
-                        parent_comment_id = ""
-                    elif 'replyLevel:2' in data_info:
-                        comment_type = "reply"
-                        # parentCommentNo에서 부모 댓글 찾기
-                        parent_match = re.search(
-                            r"parentCommentNo:'(\d+)'", data_info)
-                        parent_comment_id = parent_match.group(
-                            1) if parent_match else ""
-                    else:
-                        continue
+                    # # replyLevel 확인 (1: 원댓글, 2: 답글)
+                    # if 'replyLevel:1' in data_info:
+                    #     comment_type = "comment"
+                    #     parent_comment_id = ""
+                    # elif 'replyLevel:2' in data_info:
+                    #     comment_type = "reply"
+                    #     # parentCommentNo에서 부모 댓글 찾기
+                    #     parent_match = re.search(
+                    #         r"parentCommentNo:'(\d+)'", data_info)
+                    #     parent_comment_id = parent_match.group(
+                    #         1) if parent_match else ""
+                    # else:
+                    #     continue
 
                     # 삭제된 댓글인지 확인
                     is_deleted = 'deleted:true' in data_info
@@ -391,7 +408,8 @@ class NaverNewsMainScraper:
                     if is_deleted:
                         # 삭제된 댓글의 경우 제한된 정보만 추출
                         content = "삭제된 댓글입니다"
-                        author = ""
+                        author = self._extract_text_by_selector(
+                            comment_element, self.selectors['comments']['deleted_comment_author'])
                         like_count = ""
                         dislike_count = ""
                     else:
@@ -409,11 +427,11 @@ class NaverNewsMainScraper:
                                 comment_element, self.selectors['comments']['comment_dislike'])
                         )
 
-                    # 답글 수 추출
-                    reply_count = self._extract_number_from_text(
-                        self._extract_text_by_selector(
-                            comment_element, self.selectors['comments']['reply_count'])
-                    ) if comment_type == "comment" else "0"
+                    # # 답글 수 추출
+                    # reply_count = self._extract_number_from_text(
+                    #     self._extract_text_by_selector(
+                    #         comment_element, self.selectors['comments']['reply_count'])
+                    # ) if comment_type == "comment" else "0"
 
                     # 작성 날짜 추출
                     created_at = self._extract_text_by_selector(
@@ -423,13 +441,13 @@ class NaverNewsMainScraper:
                     comment_data = {
                         'article_id': article_id,
                         'comment_id': self.comment_id_counter,
-                        'parent_comment_id': parent_comment_id,
-                        'comment_type': comment_type,
+                        # 'parent_comment_id': parent_comment_id,
+                        # 'comment_type': comment_type,
                         'content': content,
                         'author': author,
                         'like_count': like_count,
                         'dislike_count': dislike_count,
-                        'reply_count': reply_count,
+                        # 'reply_count': reply_count,
                         'created_at': created_at,
                         'scraped_at': scraped_at
                     }
@@ -445,6 +463,173 @@ class NaverNewsMainScraper:
 
         except Exception as e:
             self.logger.error(f"댓글 데이터 추출 실패: {e}")
+            
+    
+
+    def _disable_cleanbot(self, driver: webdriver.Chrome) -> None:
+      try:
+          # 클린봇 컨테이너 찾기
+          cleanbot_container = driver.find_element(
+              By.CSS_SELECTOR, self.selectors['cleanbot']["cleanbot_container"])
+          setting_button = cleanbot_container.find_element(
+              By.CSS_SELECTOR, self.selectors['cleanbot']["setting_button"])
+
+          if setting_button.is_displayed():
+              setting_button.click()
+              print("설정 버튼 클릭 - 모달창 대기중...")
+              time.sleep(3)  # 모달 생성 대기 시간 증가
+
+              # 정확한 모달 선택자들 (실제 HTML 구조 기반)
+              modal_selectors = {
+                  "cleanbot_modal": ".u_cbox_layer_wrap, .u_cbox_layer_cleanbot2_wrap, .u_cbox_layer_cleanbot2, .u_cbox_layer_cleanbot2_content"
+              }
+
+              # 체크박스 선택자들 (실제 HTML 구조 기반)
+              checkbox_selectors = {
+                  "cleanbot_checkbox": "#cleanbot_dialog_checkbox_cbox_module, .u_cbox_layer_cleanbot2_checkbox, input[data-action='toggleCleanbot2']"
+              }
+
+              # 확인 버튼 선택자들 (실제 HTML 구조 기반)
+              confirm_selectors = {
+                  "confirm_button": "button[data-action='updateCleanbotStatus'], .u_cbox_layer_cleanbot2_extrabtn"
+              }
+
+              # 모달창 찾기
+              modal = None
+              for key, selector_string in modal_selectors.items():
+                  selectors = [s.strip() for s in selector_string.split(',')]
+                  for selector in selectors:
+                      try:
+                          modal = driver.find_element(By.CSS_SELECTOR, selector)
+                          if modal and modal.is_displayed():
+                              print(f"✓ 모달창 발견: {key} -> {selector}")
+                              break
+                      except:
+                          continue
+                  if modal and modal.is_displayed():
+                      break
+
+              if not modal or not modal.is_displayed():
+                  self.logger.warning("CleanBot 설정 모달을 찾을 수 없음")
+                  return
+
+              # 체크박스 찾기 및 상태 확인
+              checkbox = None
+              for key, selector_string in checkbox_selectors.items():
+                  selectors = [s.strip() for s in selector_string.split(',')]
+                  for selector in selectors:
+                      try:
+                          checkbox = modal.find_element(
+                              By.CSS_SELECTOR, selector)
+                          if checkbox:
+                              print(f"✓ 체크박스 발견: {key} -> {selector}")
+                              break
+                      except:
+                          continue
+                  if checkbox:
+                      break
+
+              if not checkbox:
+                  self.logger.warning("CleanBot 체크박스를 찾을 수 없음")
+                  return
+
+              # 체크박스 상태 확인 (is_checked 클래스 여부)
+              checkbox_classes = checkbox.get_attribute('class') or ""
+              is_checked = "is_checked" in checkbox_classes
+              print(f"현재 클린봇 상태: {'활성화' if is_checked else '비활성화'}")
+
+              # 클린봇이 활성화되어 있으면 비활성화
+              if is_checked:
+                  try:
+                      # 체크박스 클릭 시도
+                      driver.execute_script("arguments[0].click();", checkbox)
+                      print("클린봇 체크박스 클릭됨")
+                      time.sleep(1)
+                  except Exception as e:
+                      print(f"체크박스 직접 클릭 실패: {e}")
+                      try:
+                          # 더미 체크박스 클릭 시도
+                          dummy_checkbox = modal.find_element(
+                              By.CSS_SELECTOR, ".u_cbox_layer_cleanbot2_checkboxdummy")
+                          driver.execute_script(
+                              "arguments[0].click();", dummy_checkbox)
+                          print("더미 체크박스 클릭됨")
+                          time.sleep(1)
+                      except Exception as e2:
+                          print(f"더미 체크박스 클릭도 실패: {e2}")
+                          try:
+                              # 레이블 클릭 시도
+                              label = modal.find_element(
+                                  By.CSS_SELECTOR, "label[for='cleanbot_dialog_checkbox_cbox_module']")
+                              driver.execute_script(
+                                  "arguments[0].click();", label)
+                              print("레이블 클릭됨")
+                              time.sleep(1)
+                          except Exception as e3:
+                              self.logger.warning(f"모든 체크박스 클릭 방법 실패: {e3}")
+                              return
+
+                  # 상태 변경 확인
+                  updated_checkbox = modal.find_element(
+                      By.CSS_SELECTOR, "#cleanbot_dialog_checkbox_cbox_module")
+                  updated_classes = updated_checkbox.get_attribute('class') or ""
+                  is_still_checked = "is_checked" in updated_classes
+
+                  if not is_still_checked:
+                      print("✓ 클린봇이 성공적으로 비활성화됨")
+
+                      # 확인 버튼 클릭
+                      confirm_button = None
+                      for key, selector_string in confirm_selectors.items():
+                          selectors = [s.strip()
+                                      for s in selector_string.split(',')]
+                          for selector in selectors:
+                              try:
+                                  confirm_button = modal.find_element(
+                                      By.CSS_SELECTOR, selector)
+                                  if confirm_button and confirm_button.is_displayed():
+                                      print(f"✓ 확인 버튼 발견: {key} -> {selector}")
+                                      break
+                              except:
+                                  continue
+                          if confirm_button and confirm_button.is_displayed():
+                              break
+
+                      if confirm_button:
+                          driver.execute_script(
+                              "arguments[0].click();", confirm_button)
+                          print("✓ 확인 버튼 클릭 - 설정 저장됨")
+                          time.sleep(1)
+                          self.logger.info("CleanBot 비활성화 완료")
+                      else:
+                          self.logger.warning("확인 버튼을 찾을 수 없음")
+                  else:
+                      self.logger.warning("클린봇 비활성화에 실패함")
+              else:
+                  print("클린봇이 이미 비활성화되어 있음")
+                  # 이미 비활성화된 경우에도 확인 버튼 클릭해서 모달 닫기
+                  confirm_button = modal.find_element(
+                      By.CSS_SELECTOR, "button[data-action='updateCleanbotStatus']")
+                  if confirm_button:
+                      driver.execute_script(
+                          "arguments[0].click();", confirm_button)
+                      print("모달창 닫기")
+
+          else:
+              self.logger.warning("CleanBot 설정 버튼이 보이지 않음")
+              return
+
+      except Exception as e:
+          self.logger.warning(f"CleanBot 방지 기능 비활성화 실패: {e}")
+          # 에러 발생 시 모달이 열려있다면 닫기 시도
+          try:
+              close_button = driver.find_element(
+                  By.CSS_SELECTOR, "button[data-action='closeCleanbotLayer']")
+              if close_button and close_button.is_displayed():
+                  driver.execute_script("arguments[0].click();", close_button)
+                  print("에러 발생으로 모달창 강제 닫기")
+          except:
+              pass
 
     def _process_single_url(self, driver: webdriver.Chrome, url: str) -> bool:
         """
@@ -469,21 +654,24 @@ class NaverNewsMainScraper:
 
             # 2. 댓글 통계 추출 및 기사 데이터 업데이트
             self._extract_comment_stats(driver, article_data)
-            
+
             # 3. 댓글 상세 통계 추출
             self._extract_comment_demographic_stats(driver, article_data)
 
             # 4. 댓글 페이지로 이동
             if self._navigate_to_comments_page(driver):
-                # 5. 모든 댓글 로드
+                # 5. 클린봇 해제
+                self._disable_cleanbot(driver)
+                
+                # 6. 모든 댓글 로드
                 self._load_all_comments(driver)
 
-                # 6. 댓글 데이터 추출
+                # 7. 댓글 데이터 추출
                 self._extract_comments_data(driver, current_article_id)
             else:
                 self.logger.warning(f"댓글 페이지 접근 실패, 기사 데이터만 저장: {url}")
 
-            # 7. 기사 데이터 저장
+            # 8. 기사 데이터 저장
             self.articles_data.append(article_data)
             self.article_id_counter += 1
 
