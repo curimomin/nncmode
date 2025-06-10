@@ -23,3 +23,9 @@ open -a "Google Chrome" output/naver_news_combined_20250609_175833.html
 
   5. 스크립트 실행
     python scraper.py --urls urls.txt
+
+
+## Windows 에서 작업시
+  1. git clone [url]
+  2. py -m venv venv
+  3. venv/Scripts/activate
