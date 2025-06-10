@@ -80,7 +80,11 @@ def setup_logger(config: Dict[str, Any]) -> logging.Logger:
     log_config = config.get('logging', {})
     log_level = getattr(logging, log_config.get('level', 'INFO'))
     log_format = log_config.get('format', '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    log_file = log_config.get('file', 'scraper.log')
+    log_file = log_config.get('file', 'logs/scraper.log')
+
+    log_dir = os.path.dirname(log_file)
+    if log_dir and not os.path.exists(log_dir):
+        os.makedirs(log_dir, exist_ok=True)
     
     # 로거 설정
     logger = logging.getLogger('naver_scraper')
