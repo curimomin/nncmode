@@ -3203,3 +3203,262 @@ Stacktrace:
 2025-06-10 03:25:20,048 - naver_scraper - INFO - 실패한 URL: 0개
 2025-06-10 03:25:20,048 - naver_scraper - INFO - 성공률: 100.0%
 2025-06-10 03:25:20,048 - naver_scraper - INFO - 평균 댓글 수: 61.1개/기사
+2025-06-10 14:09:46,157 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 14:09:46,158 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 14:09:46,172 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5300371456}
+2025-06-10 14:09:46,173 - naver_scraper - INFO - 통합 크롤링 시작: 102개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 14:09:47,274 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 14:09:47,288 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/032/0003300833?sid=102
+2025-06-10 14:10:07,985 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:10:16,385 - naver_scraper - INFO - CleanBot 비활성화 완료
+2025-06-10 14:10:22,546 - naver_scraper - INFO - 발견된 댓글 수: 60
+2025-06-10 14:10:22,565 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:22,791 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:22,796 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:22,831 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:22,922 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:22,956 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,019 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,024 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,089 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,154 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,288 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,293 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,383 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,389 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,395 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,429 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,712 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,718 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,752 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:10:23,864 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/032/0003300833?sid=102
+2025-06-10 14:10:26,869 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/469/0000804894?sid=110
+2025-06-10 14:10:27,387 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:10:35,744 - naver_scraper - WARNING - CleanBot 설정 모달을 찾을 수 없음
+2025-06-10 14:10:35,747 - naver_scraper - ERROR - 댓글 로드 중 오류: HTTPConnectionPool(host='localhost', port=57989): Max retries exceeded with url: /session/7031163a0234429f94f9ce2ba30632e8/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106baf980>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-06-10 14:10:35,749 - naver_scraper - ERROR - 댓글 데이터 추출 실패: HTTPConnectionPool(host='localhost', port=57989): Max retries exceeded with url: /session/7031163a0234429f94f9ce2ba30632e8/elements (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106baed50>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-06-10 14:10:35,749 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/469/0000804894?sid=110
+2025-06-10 14:10:38,755 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/028/0002693504?sid=110
+2025-06-10 14:10:38,761 - naver_scraper - ERROR - 기사 데이터 추출 실패 (https://n.news.naver.com/mnews/article/028/0002693504?sid=110): HTTPConnectionPool(host='localhost', port=57989): Max retries exceeded with url: /session/7031163a0234429f94f9ce2ba30632e8/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106bae3c0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-06-10 14:10:40,916 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 14:19:37,539 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 14:19:37,540 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 14:19:37,553 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5296603136}
+2025-06-10 14:19:37,554 - naver_scraper - INFO - 통합 크롤링 시작: 102개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 14:19:38,624 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 14:19:38,638 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/032/0003300833?sid=102
+2025-06-10 14:19:38,638 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:19:59,337 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:19:59,379 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:19:59,387 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:19:59,387 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:20:02,596 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:20:07,767 - naver_scraper - INFO - CleanBot 비활성화 완료
+2025-06-10 14:20:07,768 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:20:13,919 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:20:13,931 - naver_scraper - INFO - 발견된 댓글 수: 60
+2025-06-10 14:20:13,947 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,169 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,175 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,211 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,303 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,339 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,402 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,407 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,470 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,536 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,672 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,677 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,767 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,774 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,780 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:14,815 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:15,099 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:15,105 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:15,139 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:15,253 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:20:15,254 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/032/0003300833?sid=102
+2025-06-10 14:20:18,261 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/469/0000804894?sid=110
+2025-06-10 14:20:18,261 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:20:18,927 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:20:18,960 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:20:18,965 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:20:18,965 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:20:22,146 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:20:25,257 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:20:25,266 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:20:25,269 - naver_scraper - INFO - 발견된 댓글 수: 1
+2025-06-10 14:20:25,279 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:20:25,279 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:20:25,279 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/469/0000804894?sid=110
+2025-06-10 14:20:28,285 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/028/0002693504?sid=110
+2025-06-10 14:20:28,285 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:20:28,856 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:20:28,889 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:20:28,894 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:20:28,894 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:20:32,094 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:20:35,219 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:20:39,231 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 14:23:19,488 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 14:23:19,488 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 14:23:19,499 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5473796096}
+2025-06-10 14:23:19,500 - naver_scraper - INFO - 통합 크롤링 시작: 102개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 14:23:20,538 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 14:23:20,549 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/032/0003300833?sid=102
+2025-06-10 14:23:20,549 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:23:41,130 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:23:41,171 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:23:41,179 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:23:41,179 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:23:44,415 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:23:49,591 - naver_scraper - INFO - CleanBot 비활성화 완료
+2025-06-10 14:23:49,592 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:23:55,750 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:23:55,762 - naver_scraper - INFO - 발견된 댓글 수: 60
+2025-06-10 14:23:55,780 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,003 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,009 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,059 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,159 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,196 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,263 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,269 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,332 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,395 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,516 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,521 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,613 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,619 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,625 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,661 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,953 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,958 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:56,993 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:23:57,107 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:23:57,107 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/032/0003300833?sid=102
+2025-06-10 14:24:00,114 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/469/0000804894?sid=110
+2025-06-10 14:24:00,114 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:24:00,758 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:24:00,798 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:24:00,803 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:24:00,803 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:24:03,985 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:24:07,102 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:24:07,109 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:24:07,113 - naver_scraper - INFO - 발견된 댓글 수: 1
+2025-06-10 14:24:07,123 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:24:07,123 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:24:07,123 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/469/0000804894?sid=110
+2025-06-10 14:24:09,003 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 14:26:36,048 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 14:26:36,049 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 14:26:36,060 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5562777600}
+2025-06-10 14:26:36,060 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 14:26:37,100 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 14:26:37,112 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 14:26:37,112 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:26:37,848 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:26:37,888 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:26:37,897 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:26:37,897 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:26:41,206 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:26:41,234 - naver_scraper - WARNING - 클린봇 메시지 확인: 클린봇이 악성댓글을 감지합니다.
+2025-06-10 14:26:46,385 - naver_scraper - INFO - CleanBot 비활성화 완료
+2025-06-10 14:26:46,385 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:26:46,406 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:26:46,414 - naver_scraper - INFO - 발견된 댓글 수: 5
+2025-06-10 14:26:46,528 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:26:46,556 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:26:46,556 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 14:26:49,562 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 14:26:49,563 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:26:50,081 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:26:50,113 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:26:50,118 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:26:50,118 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:26:53,427 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:26:53,451 - naver_scraper - WARNING - 클린봇 메시지 확인: 클린봇으로 착한댓글만 모아보세요!
+2025-06-10 14:26:55,521 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 14:27:57,798 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 14:27:57,798 - naver_scraper - INFO - 네이버 뉴스 통합 크롤러 시작
+2025-06-10 14:27:57,809 - naver_scraper - INFO - 시스템 정보: {'platform': 'macOS-15.4.1-arm64-arm-64bit', 'python_version': '3.12.3', 'cpu_count': 10, 'memory_total': 17179869184, 'memory_available': 5603049472}
+2025-06-10 14:27:57,810 - naver_scraper - INFO - 통합 크롤링 시작: 3개 URL (순차 처리, 요청 간격: 3.0초)
+2025-06-10 14:27:58,827 - naver_scraper - INFO - Chrome 브라우저 시작
+2025-06-10 14:27:58,837 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 14:27:58,837 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:27:59,554 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:27:59,593 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:27:59,601 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:27:59,601 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:28:02,804 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:28:02,819 - naver_scraper - WARNING - 클린봇 메시지 확인: 클린봇이 악성댓글을 감지합니다.
+2025-06-10 14:28:07,959 - naver_scraper - INFO - CleanBot 비활성화 완료
+2025-06-10 14:28:07,959 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:28:07,978 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:28:07,987 - naver_scraper - INFO - 발견된 댓글 수: 5
+2025-06-10 14:28:08,099 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:08,127 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:28:08,127 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/025/0003408930?sid=104
+2025-06-10 14:28:11,129 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 14:28:11,130 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:28:11,530 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:28:11,562 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:28:11,567 - naver_scraper - INFO - 댓글 상세통계 차트 요소를 찾을 수 없음
+2025-06-10 14:28:11,567 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:28:14,744 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:28:14,767 - naver_scraper - WARNING - 클린봇 메시지 확인: 클린봇으로 착한댓글만 모아보세요!
+2025-06-10 14:28:14,767 - naver_scraper - INFO - 클린봇 해제 확인
+2025-06-10 14:28:14,767 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:28:14,777 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:28:14,782 - naver_scraper - INFO - 발견된 댓글 수: 9
+2025-06-10 14:28:14,963 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:14,967 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:14,995 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:28:14,995 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/005/0001781600?sid=102
+2025-06-10 14:28:18,001 - naver_scraper - INFO - 처리 시작: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 14:28:18,002 - naver_scraper - INFO - --기사데이터 추출시작
+2025-06-10 14:28:18,402 - naver_scraper - INFO - --댓글 일반통계 추출시작
+2025-06-10 14:28:18,437 - naver_scraper - INFO - --댓글 상세통계 추출시작
+2025-06-10 14:28:18,523 - naver_scraper - INFO - --댓글 페이지로 이동
+2025-06-10 14:28:21,739 - naver_scraper - INFO - --클린봇 해제 시작
+2025-06-10 14:28:21,761 - naver_scraper - WARNING - 클린봇 메시지 확인: 클린봇으로 착한댓글만 모아보세요!
+2025-06-10 14:28:21,761 - naver_scraper - INFO - 클린봇 해제 확인
+2025-06-10 14:28:21,761 - naver_scraper - INFO - --댓글 로드 시작
+2025-06-10 14:28:40,129 - naver_scraper - INFO - --댓글 추출 시작
+2025-06-10 14:28:40,143 - naver_scraper - INFO - 발견된 댓글 수: 125
+2025-06-10 14:28:40,699 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:40,706 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:40,919 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,158 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,254 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,260 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,501 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,567 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,749 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,756 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:41,823 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,071 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,223 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,289 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,296 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,334 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,341 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,378 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,385 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:42,941 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:43,035 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:43,101 - naver_scraper - WARNING - 개별 댓글 처리 실패: 'deleted_comment_author'
+2025-06-10 14:28:43,333 - naver_scraper - INFO - --기사 데이터 저장(메모리)
+2025-06-10 14:28:43,334 - naver_scraper - INFO - 처리 완료: https://n.news.naver.com/mnews/article/056/0011964101?sid=102
+2025-06-10 14:28:46,453 - naver_scraper - INFO - Chrome 브라우저 종료
+2025-06-10 14:28:46,453 - naver_scraper - INFO - 통합 크롤링 완료: 성공 3개, 실패 0개
+2025-06-10 14:28:46,454 - naver_scraper - INFO - articles.csv 저장 완료: 3개 기사
+2025-06-10 14:28:46,454 - naver_scraper - INFO - comments.csv 저장 완료: 114개 댓글
+2025-06-10 14:28:46,454 - naver_scraper - INFO - 통합 크롤링 완료!
+2025-06-10 14:28:46,455 - naver_scraper - INFO - 소요 시간: 0:00:48.643638
+2025-06-10 14:28:46,455 - naver_scraper - INFO - 성공한 기사: 3개
+2025-06-10 14:28:46,455 - naver_scraper - INFO - 수집한 댓글: 114개
+2025-06-10 14:28:46,455 - naver_scraper - INFO - 실패한 URL: 0개
+2025-06-10 14:28:46,455 - naver_scraper - INFO - 성공률: 100.0%
+2025-06-10 14:28:46,455 - naver_scraper - INFO - 평균 댓글 수: 38.0개/기사

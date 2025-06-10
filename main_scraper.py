@@ -359,8 +359,6 @@ class NaverNewsMainScraper:
         """
         
         try:
-            # WebDriverWait(driver, self.config['selenium']['page_load_timeout']).until(
-            #   EC.presence_of_element_located((By.TAG_NAME, "body")))
             
             scraped_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
@@ -388,19 +386,6 @@ class NaverNewsMainScraper:
                     if not data_info:
                         continue
 
-                    # # replyLevel 확인 (1: 원댓글, 2: 답글)
-                    # if 'replyLevel:1' in data_info:
-                    #     comment_type = "comment"
-                    #     parent_comment_id = ""
-                    # elif 'replyLevel:2' in data_info:
-                    #     comment_type = "reply"
-                    #     # parentCommentNo에서 부모 댓글 찾기
-                    #     parent_match = re.search(
-                    #         r"parentCommentNo:'(\d+)'", data_info)
-                    #     parent_comment_id = parent_match.group(
-                    #         1) if parent_match else ""
-                    # else:
-                    #     continue
 
                     # 삭제된 댓글인지 확인
                     is_deleted = 'deleted:true' in data_info
@@ -427,11 +412,6 @@ class NaverNewsMainScraper:
                                 comment_element, self.selectors['comments']['comment_dislike'])
                         )
 
-                    # # 답글 수 추출
-                    # reply_count = self._extract_number_from_text(
-                    #     self._extract_text_by_selector(
-                    #         comment_element, self.selectors['comments']['reply_count'])
-                    # ) if comment_type == "comment" else "0"
 
                     # 작성 날짜 추출
                     created_at = self._extract_text_by_selector(
@@ -441,13 +421,10 @@ class NaverNewsMainScraper:
                     comment_data = {
                         'article_id': article_id,
                         'comment_id': self.comment_id_counter,
-                        # 'parent_comment_id': parent_comment_id,
-                        # 'comment_type': comment_type,
                         'content': content,
                         'author': author,
                         'like_count': like_count,
                         'dislike_count': dislike_count,
-                        # 'reply_count': reply_count,
                         'created_at': created_at,
                         'scraped_at': scraped_at
                     }
@@ -471,6 +448,18 @@ class NaverNewsMainScraper:
           # 클린봇 컨테이너 찾기
           cleanbot_container = driver.find_element(
               By.CSS_SELECTOR, self.selectors['cleanbot']["cleanbot_container"])
+          
+          # 클린봇 해제 점검
+          cleanbot_message = self._extract_text_by_selector(
+              cleanbot_container, self.selectors['cleanbot']["cleanbot_message"])
+          
+          print(f"클린봇 메시지 확인: {cleanbot_message}")
+          self.logger.warning(f"클린봇 메시지 확인: {cleanbot_message}")
+          if cleanbot_message and "착한댓글" in cleanbot_message:
+              print("-------#!@#%!@#%!@$% 검수")
+              self.logger.info("클린봇 해제 확인")
+              return
+            
           setting_button = cleanbot_container.find_element(
               By.CSS_SELECTOR, self.selectors['cleanbot']["setting_button"])
 
@@ -646,6 +635,7 @@ class NaverNewsMainScraper:
             self.logger.info(f"처리 시작: {url}")
 
             # 1. 기사 데이터 추출
+            self.logger.info(f"--기사데이터 추출시작")
             article_data = self._extract_article_data(driver, url)
             if not article_data:
                 return False
@@ -653,25 +643,33 @@ class NaverNewsMainScraper:
             current_article_id = article_data['article_id']
 
             # 2. 댓글 통계 추출 및 기사 데이터 업데이트
+            self.logger.info(f"--댓글 일반통계 추출시작")
             self._extract_comment_stats(driver, article_data)
 
             # 3. 댓글 상세 통계 추출
+            self.logger.info(f"--댓글 상세통계 추출시작")
             self._extract_comment_demographic_stats(driver, article_data)
 
             # 4. 댓글 페이지로 이동
+            self.logger.info(f"--댓글 페이지로 이동")
             if self._navigate_to_comments_page(driver):
+                
                 # 5. 클린봇 해제
+                self.logger.info(f"--클린봇 해제 시작")
                 self._disable_cleanbot(driver)
                 
                 # 6. 모든 댓글 로드
+                self.logger.info(f"--댓글 로드 시작")
                 self._load_all_comments(driver)
 
                 # 7. 댓글 데이터 추출
+                self.logger.info(f"--댓글 추출 시작")
                 self._extract_comments_data(driver, current_article_id)
             else:
                 self.logger.warning(f"댓글 페이지 접근 실패, 기사 데이터만 저장: {url}")
 
             # 8. 기사 데이터 저장
+            self.logger.info(f"--기사 데이터 저장(메모리)")
             self.articles_data.append(article_data)
             self.article_id_counter += 1
 

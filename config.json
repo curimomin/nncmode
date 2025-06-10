@@ -1,7 +1,7 @@
 {
   "scraping": {
     "delay_between_requests": 3.0,
-    "timeout": 30,
+    "timeout": 15,
     "retry_count": 5,
     "max_workers": 1,
     "headless": false
@@ -76,7 +76,8 @@
     },
     "cleanbot": {
       "cleanbot_container": ".u_cbox_cleanbot",
-      "setting_button": "a.u_cbox_cleanbot_setbutton"
+      "setting_button": "a.u_cbox_cleanbot_setbutton",
+      "cleanbot_message": ".u_cbox_cleanbot_content"
     }
   },
   "ui_labels": {
