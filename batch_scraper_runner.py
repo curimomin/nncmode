@@ -59,7 +59,7 @@ class BatchScraper:
                     'level': 'INFO',
                     'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     'console_format':'%(asctime)s - %(levelname)s - [BATCH RUNNER] - %(message)s',
-                    'file': 'batch_scraper.log'
+                    'file': 'logs/batch_scraper.log'
                 }
             }
             logger = setup_logger(config)

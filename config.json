@@ -30,7 +30,7 @@
   },
   "logging": {
     "level": "INFO",
-    "file": "scraper.log",
+    "file": "logs/scraper.log",
     "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
   },
   "chrome_options": [
