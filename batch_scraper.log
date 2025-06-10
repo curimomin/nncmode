@@ -1,0 +1,99 @@
+2025-06-10 20:00:26,915 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:00:26,915 - batch_scraper_runner - INFO - 배치 처리 시작 - 총 2개 파일
+2025-06-10 20:00:26,915 - batch_scraper_runner - INFO - 처리할 파일들: ['urls/test_1.txt', 'urls/test_2.txt']
+2025-06-10 20:00:26,915 - batch_scraper_runner - INFO - 진행률: 1/2 (50.0%)
+2025-06-10 20:00:26,915 - batch_scraper_runner - INFO - 처리 중: urls/test_1.txt
+2025-06-10 20:00:26,915 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_1.txt
+2025-06-10 20:00:47,702 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_1.txt
+2025-06-10 20:00:47,702 - batch_scraper_runner - INFO - 5초 대기 중...
+2025-06-10 20:00:52,703 - batch_scraper_runner - INFO - 진행률: 2/2 (100.0%)
+2025-06-10 20:00:52,704 - batch_scraper_runner - INFO - 처리 중: urls/test_2.txt
+2025-06-10 20:00:52,704 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_2.txt
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_2.txt
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - ==================================================
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 배치 처리 완료
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 처리 시간: 2025-06-10 20:00:26 ~ 2025-06-10 20:01:24
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 총 처리 시간: 57.87초
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 성공: 2개
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 실패: 0개
+2025-06-10 20:01:24,782 - batch_scraper_runner - INFO - 총 파일: 2개
+2025-06-10 20:11:44,337 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:11:44,337 - batch_scraper_runner - INFO - 배치 처리 시작 - 총 2개 파일
+2025-06-10 20:11:44,337 - batch_scraper_runner - INFO - 처리할 파일들: ['urls/test_1.txt', 'urls/test_2.txt']
+2025-06-10 20:11:44,337 - batch_scraper_runner - INFO - 진행률: 1/2 (50.0%)
+2025-06-10 20:11:44,337 - batch_scraper_runner - INFO - 처리 중: urls/test_1.txt
+2025-06-10 20:11:44,337 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_1.txt
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt] ✓ 설정 버튼 클릭 - 모달창 대기중...
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 모달창 발견: cleanbot_modal -> .u_cbox_layer_wrap
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 체크박스 발견: cleanbot_checkbox -> #cleanbot_dialog_checkbox_cbox_module
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 현재 클린봇 상태: 활성화
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 클린봇 체크박스 클릭됨
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 클린봇이 성공적으로 비활성화됨
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 확인 버튼 발견: confirm_button -> button[data-action='updateCleanbotStatus']
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - [urls/test_1.txt]     ✓ 확인 버튼 클릭 - 설정 저장됨
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_1.txt
+2025-06-10 20:12:04,986 - batch_scraper_runner - INFO - 5초 대기 중...
+2025-06-10 20:12:09,988 - batch_scraper_runner - INFO - 진행률: 2/2 (100.0%)
+2025-06-10 20:12:09,988 - batch_scraper_runner - INFO - 처리 중: urls/test_2.txt
+2025-06-10 20:12:09,989 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_2.txt
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_2.txt
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - ==================================================
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 배치 처리 완료
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 처리 시간: 2025-06-10 20:11:44 ~ 2025-06-10 20:12:41
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 총 처리 시간: 57.40초
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 성공: 2개
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 실패: 0개
+2025-06-10 20:12:41,737 - batch_scraper_runner - INFO - 총 파일: 2개
+2025-06-10 20:14:11,420 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:14:11,421 - batch_scraper_runner - INFO - 배치 처리 시작 - 총 2개 파일
+2025-06-10 20:14:11,421 - batch_scraper_runner - INFO - 처리할 파일들: ['urls/test_1.txt', 'urls/test_2.txt']
+2025-06-10 20:14:11,421 - batch_scraper_runner - INFO - 진행률: 1/2 (50.0%)
+2025-06-10 20:14:11,421 - batch_scraper_runner - INFO - 처리 중: urls/test_1.txt
+2025-06-10 20:14:11,421 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_1.txt
+2025-06-10 20:14:31,813 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_1.txt
+2025-06-10 20:14:31,814 - batch_scraper_runner - INFO - 5초 대기 중...
+2025-06-10 20:14:36,818 - batch_scraper_runner - INFO - 진행률: 2/2 (100.0%)
+2025-06-10 20:14:36,818 - batch_scraper_runner - INFO - 처리 중: urls/test_2.txt
+2025-06-10 20:14:36,819 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_2.txt
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_2.txt
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - ==================================================
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 배치 처리 완료
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 처리 시간: 2025-06-10 20:14:11 ~ 2025-06-10 20:15:08
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 총 처리 시간: 57.07초
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 성공: 2개
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 실패: 0개
+2025-06-10 20:15:08,493 - batch_scraper_runner - INFO - 총 파일: 2개
+2025-06-10 20:30:32,095 - naver_scraper - INFO - [BAT] - 로깅 설정 완료
+2025-06-10 20:30:32,095 - batch_scraper_runner - INFO - [BAT] - 배치 처리 시작 - 총 2개 파일
+2025-06-10 20:30:32,095 - batch_scraper_runner - INFO - [BAT] - 처리할 파일들: ['urls/test_1.txt', 'urls/test_2.txt']
+2025-06-10 20:30:32,095 - batch_scraper_runner - INFO - [BAT] - 진행률: 1/2 (50.0%)
+2025-06-10 20:30:32,095 - batch_scraper_runner - INFO - [BAT] - 처리 중: urls/test_1.txt
+2025-06-10 20:30:32,095 - batch_scraper_runner - INFO - [BAT] - 스크래핑 시작: urls/test_1.txt
+2025-06-10 20:33:30,572 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:33:30,572 - batch_scraper_runner - INFO - 배치 처리 시작 - 총 2개 파일
+2025-06-10 20:33:30,572 - batch_scraper_runner - INFO - 처리할 파일들: ['urls/test_1.txt', 'urls/test_2.txt']
+2025-06-10 20:33:30,572 - batch_scraper_runner - INFO - 진행률: 1/2 (50.0%)
+2025-06-10 20:33:30,572 - batch_scraper_runner - INFO - 처리 중: urls/test_1.txt
+2025-06-10 20:33:30,572 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_1.txt
+2025-06-10 20:36:22,083 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:36:32,193 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:36:43,606 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:37:02,084 - naver_scraper - INFO - 로깅 설정 완료
+2025-06-10 20:37:02,085 - batch_scraper_runner - INFO - 배치 처리 시작 - 총 2개 파일
+2025-06-10 20:37:02,085 - batch_scraper_runner - INFO - 처리할 파일들: ['urls/test_1.txt', 'urls/test_2.txt']
+2025-06-10 20:37:02,085 - batch_scraper_runner - INFO - 진행률: 1/2 (50.0%)
+2025-06-10 20:37:02,085 - batch_scraper_runner - INFO - 처리 중: urls/test_1.txt
+2025-06-10 20:37:02,085 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_1.txt
+2025-06-10 20:37:22,473 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_1.txt
+2025-06-10 20:37:22,474 - batch_scraper_runner - INFO - 5초 대기 중...
+2025-06-10 20:37:27,479 - batch_scraper_runner - INFO - 진행률: 2/2 (100.0%)
+2025-06-10 20:37:27,480 - batch_scraper_runner - INFO - 처리 중: urls/test_2.txt
+2025-06-10 20:37:27,480 - batch_scraper_runner - INFO - 스크래핑 시작: urls/test_2.txt
+2025-06-10 20:38:00,110 - batch_scraper_runner - INFO - 스크래핑 완료: urls/test_2.txt
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - ==================================================
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - 배치 처리 완료
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - 처리 시간: 2025-06-10 20:37:02 ~ 2025-06-10 20:38:00
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - 총 처리 시간: 58.03초
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - 성공: 2개
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - 실패: 0개
+2025-06-10 20:38:00,111 - batch_scraper_runner - INFO - 총 파일: 2개
