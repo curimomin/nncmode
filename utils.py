@@ -5,10 +5,9 @@
 import json
 import logging
 import os
-import csv
 import pandas as pd
 from datetime import datetime
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 from pathlib import Path
 
 
@@ -101,9 +100,11 @@ def setup_logger(config: Dict[str, Any]) -> logging.Logger:
     # 콘솔 핸들러
     console_handler = logging.StreamHandler()
     console_handler.setLevel(log_level)
-    console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    console_formatter = logging.Formatter(log_config.get('console_format', '%(asctime)s - %(levelname)s - %(message)s'))
     console_handler.setFormatter(console_formatter)
     logger.addHandler(console_handler)
+
+    logger.propagate = False  # 상위 로거로 전파하지 않음
     
     logger.info("로깅 설정 완료")
     return logger
@@ -122,31 +123,6 @@ def create_output_directory(output_dir: str) -> str:
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     logging.info(f"출력 디렉토리 준비: {output_dir}")
     return output_dir
-
-
-def generate_output_filename(config: Dict[str, Any], output_dir: str) -> str:
-    """
-    출력 파일명을 생성합니다.
-    
-    Args:
-        config: 설정 딕셔너리
-        output_dir: 출력 디렉토리
-        
-    Returns:
-        완전한 파일 경로
-    """
-    output_config = config.get('output', {})
-    prefix = output_config.get('filename_prefix', 'naver_news')
-    file_format = output_config.get('format', 'csv')
-    include_timestamp = output_config.get('include_timestamp', True)
-    
-    if include_timestamp:
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"{prefix}_{timestamp}.{file_format}"
-    else:
-        filename = f"{prefix}.{file_format}"
-    
-    return os.path.join(output_dir, filename)
 
 
 def save_results(data: List[Dict[str, Any]], config: Dict[str, Any], output_path: str) -> None:

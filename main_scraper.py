@@ -1,5 +1,5 @@
 """
-네이버 뉴스 통합 크롤러 메인 모듈
+네이버 뉴스 통합 스크래퍼 메인 모듈
 기사 정보 + 댓글 데이터를 articles.csv와 comments.csv로 저장
 """
 
@@ -211,7 +211,6 @@ class NaverNewsMainScraper:
 
             if comment_button.is_displayed():
                 comment_button.click()
-                self.logger.debug("댓글 페이지로 이동 버튼 클릭")
 
                 # 페이지 로드 대기
                 time.sleep(3)
@@ -265,7 +264,6 @@ class NaverNewsMainScraper:
             article_data: 업데이트할 기사 데이터
         """
         
-        
         try:
             stat_items = driver.find_elements(
                 By.CSS_SELECTOR, self.selectors['comment_stats']['stat_count_info'])
@@ -289,7 +287,7 @@ class NaverNewsMainScraper:
                 elif self.ui_labels['comments']['removed_comment_count'] in title:
                     article_data['removed_comment_count'] = value
 
-            self.logger.debug("댓글 일반통계 추출 완료")
+            self.logger.debug("  ├─ 댓글 일반통계 추출 완료")
 
         except Exception as e:
             self.logger.warning(f"댓글 일반통계 추출 실패: {e}")
@@ -307,7 +305,7 @@ class NaverNewsMainScraper:
                 By.CSS_SELECTOR, self.selectors['comment_stats']['demographic_stats_container'])
 
             if not chart_wrap_element.is_displayed():
-                self.logger.info("댓글 상세통계 차트 요소를 찾을 수 없음")
+                self.logger.info("  ├─ 댓글 상세통계 차트 요소를 찾을 수 없음")
                 return
 
             # 성별 비율 추출
@@ -368,7 +366,7 @@ class NaverNewsMainScraper:
                 self.selectors['comments']['comment_list']
             )
 
-            self.logger.info(f"발견된 댓글 수: {len(comment_elements)}")
+            self.logger.info(f"  ├─ 발견된 댓글 수: {len(comment_elements)}")
             
             comment_count = len(driver.find_elements(By.CSS_SELECTOR, self.selectors['comments']['comment_list']))
 
@@ -433,10 +431,10 @@ class NaverNewsMainScraper:
                     self.comment_id_counter += 1
 
                 except Exception as e:
-                    self.logger.warning(f"개별 댓글 처리 실패: {e}")
+                    self.logger.debug(f"개별 댓글 처리 실패: {e}")
                     continue
 
-            self.logger.debug(f"댓글 추출 완료: {len(comment_elements)}개")
+            self.logger.info(f"  ├─ 댓글 추출 완료: {len(comment_elements)}개")
 
         except Exception as e:
             self.logger.error(f"댓글 데이터 추출 실패: {e}")
@@ -453,11 +451,8 @@ class NaverNewsMainScraper:
           cleanbot_message = self._extract_text_by_selector(
               cleanbot_container, self.selectors['cleanbot']["cleanbot_message"])
           
-          print(f"클린봇 메시지 확인: {cleanbot_message}")
-          self.logger.warning(f"클린봇 메시지 확인: {cleanbot_message}")
           if cleanbot_message and "착한댓글" in cleanbot_message:
-              print("-------#!@#%!@#%!@$% 검수")
-              self.logger.info("클린봇 해제 확인")
+              self.logger.info("  ├─ 클린봇 해제 확인")
               return
             
           setting_button = cleanbot_container.find_element(
@@ -465,7 +460,7 @@ class NaverNewsMainScraper:
 
           if setting_button.is_displayed():
               setting_button.click()
-              print("설정 버튼 클릭 - 모달창 대기중...")
+              print("    ✓ 설정 버튼 클릭 - 모달창 대기중...")
               time.sleep(3)  # 모달 생성 대기 시간 증가
 
               # 정확한 모달 선택자들 (실제 HTML 구조 기반)
@@ -491,7 +486,7 @@ class NaverNewsMainScraper:
                       try:
                           modal = driver.find_element(By.CSS_SELECTOR, selector)
                           if modal and modal.is_displayed():
-                              print(f"✓ 모달창 발견: {key} -> {selector}")
+                              print(f"    ✓ 모달창 발견: {key} -> {selector}")
                               break
                       except:
                           continue
@@ -511,7 +506,7 @@ class NaverNewsMainScraper:
                           checkbox = modal.find_element(
                               By.CSS_SELECTOR, selector)
                           if checkbox:
-                              print(f"✓ 체크박스 발견: {key} -> {selector}")
+                              print(f"    ✓ 체크박스 발견: {key} -> {selector}")
                               break
                       except:
                           continue
@@ -525,34 +520,34 @@ class NaverNewsMainScraper:
               # 체크박스 상태 확인 (is_checked 클래스 여부)
               checkbox_classes = checkbox.get_attribute('class') or ""
               is_checked = "is_checked" in checkbox_classes
-              print(f"현재 클린봇 상태: {'활성화' if is_checked else '비활성화'}")
+              print(f"    ✓ 현재 클린봇 상태: {'활성화' if is_checked else '비활성화'}")
 
               # 클린봇이 활성화되어 있으면 비활성화
               if is_checked:
                   try:
                       # 체크박스 클릭 시도
                       driver.execute_script("arguments[0].click();", checkbox)
-                      print("클린봇 체크박스 클릭됨")
+                      print("    ✓ 클린봇 체크박스 클릭됨")
                       time.sleep(1)
                   except Exception as e:
-                      print(f"체크박스 직접 클릭 실패: {e}")
+                      print(f"    ! 체크박스 직접 클릭 실패: {e}")
                       try:
                           # 더미 체크박스 클릭 시도
                           dummy_checkbox = modal.find_element(
                               By.CSS_SELECTOR, ".u_cbox_layer_cleanbot2_checkboxdummy")
                           driver.execute_script(
                               "arguments[0].click();", dummy_checkbox)
-                          print("더미 체크박스 클릭됨")
+                          print("    ✓ 더미 체크박스 클릭됨")
                           time.sleep(1)
                       except Exception as e2:
-                          print(f"더미 체크박스 클릭도 실패: {e2}")
+                          print(f"    ! 더미 체크박스 클릭도 실패: {e2}")
                           try:
                               # 레이블 클릭 시도
                               label = modal.find_element(
                                   By.CSS_SELECTOR, "label[for='cleanbot_dialog_checkbox_cbox_module']")
                               driver.execute_script(
                                   "arguments[0].click();", label)
-                              print("레이블 클릭됨")
+                              print("    ✓ 레이블 클릭됨")
                               time.sleep(1)
                           except Exception as e3:
                               self.logger.warning(f"모든 체크박스 클릭 방법 실패: {e3}")
@@ -565,7 +560,7 @@ class NaverNewsMainScraper:
                   is_still_checked = "is_checked" in updated_classes
 
                   if not is_still_checked:
-                      print("✓ 클린봇이 성공적으로 비활성화됨")
+                      print("    ✓ 클린봇이 성공적으로 비활성화됨")
 
                       # 확인 버튼 클릭
                       confirm_button = None
@@ -577,7 +572,7 @@ class NaverNewsMainScraper:
                                   confirm_button = modal.find_element(
                                       By.CSS_SELECTOR, selector)
                                   if confirm_button and confirm_button.is_displayed():
-                                      print(f"✓ 확인 버튼 발견: {key} -> {selector}")
+                                      print(f"    ✓ 확인 버튼 발견: {key} -> {selector}")
                                       break
                               except:
                                   continue
@@ -587,22 +582,22 @@ class NaverNewsMainScraper:
                       if confirm_button:
                           driver.execute_script(
                               "arguments[0].click();", confirm_button)
-                          print("✓ 확인 버튼 클릭 - 설정 저장됨")
+                          print("    ✓ 확인 버튼 클릭 - 설정 저장됨")
                           time.sleep(1)
-                          self.logger.info("CleanBot 비활성화 완료")
+                          self.logger.info("  ├─ CleanBot 비활성화 완료")
                       else:
                           self.logger.warning("확인 버튼을 찾을 수 없음")
                   else:
                       self.logger.warning("클린봇 비활성화에 실패함")
               else:
-                  print("클린봇이 이미 비활성화되어 있음")
+                  self.logger.debug("클린봇이 이미 비활성화되어 있음")
                   # 이미 비활성화된 경우에도 확인 버튼 클릭해서 모달 닫기
                   confirm_button = modal.find_element(
                       By.CSS_SELECTOR, "button[data-action='updateCleanbotStatus']")
                   if confirm_button:
                       driver.execute_script(
                           "arguments[0].click();", confirm_button)
-                      print("모달창 닫기")
+                      print("    ✓ 모달창 닫기")
 
           else:
               self.logger.warning("CleanBot 설정 버튼이 보이지 않음")
@@ -616,7 +611,7 @@ class NaverNewsMainScraper:
                   By.CSS_SELECTOR, "button[data-action='closeCleanbotLayer']")
               if close_button and close_button.is_displayed():
                   driver.execute_script("arguments[0].click();", close_button)
-                  print("에러 발생으로 모달창 강제 닫기")
+                  self.logger.warning("에러 발생으로 모달창 강제 닫기")
           except:
               pass
 
@@ -635,45 +630,57 @@ class NaverNewsMainScraper:
             self.logger.info(f"처리 시작: {url}")
 
             # 1. 기사 데이터 추출
-            self.logger.info(f"--기사데이터 추출시작")
+            self.logger.info(f"  ├─ 기사데이터 추출시작")
             article_data = self._extract_article_data(driver, url)
             if not article_data:
                 return False
 
             current_article_id = article_data['article_id']
 
+            # 1.1 댓글 추가작업 진행여부 판단 및 진행
+            sohuld_process_additional_comments_work = article_data['comment_count'] != "0"
+            if not sohuld_process_additional_comments_work:
+                self.logger.info(
+                    f"  ├─ 댓글이 없는 기사 데이터만 저장")
+                self.logger.info(f"  └─ 처리 완료 {'─' * 60}")
+                # 댓글이 없는 경우, 기사 데이터만 저장하고 종료
+                self.articles_data.append(article_data)
+                self.article_id_counter += 1
+                return True
+
+
             # 2. 댓글 통계 추출 및 기사 데이터 업데이트
-            self.logger.info(f"--댓글 일반통계 추출시작")
+            self.logger.info(f"  ├─ 댓글 일반통계 추출시작")
             self._extract_comment_stats(driver, article_data)
 
             # 3. 댓글 상세 통계 추출
-            self.logger.info(f"--댓글 상세통계 추출시작")
+            self.logger.info(f"  ├─ 댓글 상세통계 추출시작")
             self._extract_comment_demographic_stats(driver, article_data)
 
             # 4. 댓글 페이지로 이동
-            self.logger.info(f"--댓글 페이지로 이동")
+            self.logger.info(f"  ├─ 댓글 페이지로 이동")
             if self._navigate_to_comments_page(driver):
                 
                 # 5. 클린봇 해제
-                self.logger.info(f"--클린봇 해제 시작")
+                self.logger.info(f"  ├─ 클린봇 해제 시작")
                 self._disable_cleanbot(driver)
                 
                 # 6. 모든 댓글 로드
-                self.logger.info(f"--댓글 로드 시작")
+                self.logger.info(f"  ├─ 댓글 로드 시작")
                 self._load_all_comments(driver)
 
                 # 7. 댓글 데이터 추출
-                self.logger.info(f"--댓글 추출 시작")
+                self.logger.info(f"  ├─ 댓글 추출 시작")
                 self._extract_comments_data(driver, current_article_id)
             else:
-                self.logger.warning(f"댓글 페이지 접근 실패, 기사 데이터만 저장: {url}")
+                self.logger.warning(f"  ├─ 댓글 페이지 접근 실패, 기사 데이터만 저장: {url}")
 
             # 8. 기사 데이터 저장
-            self.logger.info(f"--기사 데이터 저장(메모리)")
+            self.logger.info(f"  ├─ 기사 데이터 저장(메모리)")
             self.articles_data.append(article_data)
             self.article_id_counter += 1
 
-            self.logger.info(f"처리 완료: {url}")
+            self.logger.info(f"  └─ 처리 완료 {'─' * 60}")
             return True
 
         except Exception as e:
@@ -727,17 +734,21 @@ class NaverNewsMainScraper:
         self.logger.info(
             f"통합 크롤링 완료: 성공 {len(self.articles_data)}개, 실패 {len(self.failed_urls)}개")
 
-    def save_csv_files(self, output_dir: str) -> None:
+    def save_csv_files(self, output_dir: str, suffix: str) -> None:
         """
         articles.csv와 comments.csv 파일 저장
 
         Args:
             output_dir: 출력 디렉토리
+            suffix: 파일 접미사 (입력받은 urls 파일명)
         """
         try:
             # articles.csv 저장
             if self.articles_data:
-                articles_file = Path(output_dir) / "articles.csv"
+                # suffix에서 파일명 추출
+                clean_suffix = Path(suffix).stem
+                # suffix기반 파일명 생성
+                articles_file = Path(output_dir) / f"articles_{clean_suffix}.csv"
                 with open(articles_file, 'w', newline='', encoding='utf-8') as f:
                     fieldnames = [
                         'article_id', 'url', 'title', 'content', 'author', 'publish_date', 'category',
@@ -756,7 +767,7 @@ class NaverNewsMainScraper:
 
             # comments.csv 저장
             if self.comments_data:
-                comments_file = Path(output_dir) / "comments.csv"
+                comments_file = Path(output_dir) / f"comments_{clean_suffix}.csv"
                 with open(comments_file, 'w', newline='', encoding='utf-8') as f:
                     fieldnames = [
                         'article_id', 'comment_id', 'parent_comment_id', 'comment_type',
@@ -785,8 +796,6 @@ def main():
 
     args = parser.parse_args()
 
-    print("네이버 뉴스 통합 크롤러 시작")
-
     try:
         # 설정 로드 및 검증
         config = load_config(args.config)
@@ -795,7 +804,11 @@ def main():
 
         # 로깅 설정
         logger = setup_logger(config)
-        logger.info("네이버 뉴스 통합 크롤러 시작")
+
+        # 시작 로그
+        logger.info("=" * 50)
+        logger.info("🚀 네이버 뉴스 통합 크롤러 시작")
+        logger.info("=" * 50)
 
         # 시스템 정보 로그
         system_info = get_system_info()
@@ -820,7 +833,7 @@ def main():
         duration = end_time - start_time
 
         # CSV 파일 저장
-        scraper.save_csv_files(output_dir)
+        scraper.save_csv_files(output_dir, args.urls)
 
         # 실패한 URL 저장
         if scraper.failed_urls:
