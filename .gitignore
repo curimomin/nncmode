@@ -1,5 +1,23 @@
+# Python
 __pycache__/
 *.py[cod]
-.venv
-*.log
+*$py.class
 
+# Virtual environment
+.venv
+venv/
+env/
+.env
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Output
+output/*
+!output/.gitkeep

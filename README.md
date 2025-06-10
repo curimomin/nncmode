@@ -29,3 +29,14 @@ open -a "Google Chrome" output/naver_news_combined_20250609_175833.html
   1. git clone [url]
   2. py -m venv venv
   3. venv/Scripts/activate
+
+### 가상환경 새로 생성
+python -m venv venv
+
+### 활성화
+source venv/bin/activate  # Linux/Mac
+### 또는
+venv\Scripts\activate     # Windows
+
+### 패키지 설치
+pip install -r requirements.txt
