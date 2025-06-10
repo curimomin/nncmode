@@ -1,7 +1,11 @@
+# Auth
+auth/
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
+
 
 # Virtual environment
 .venv
