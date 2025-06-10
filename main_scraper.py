@@ -850,13 +850,17 @@ def main():
             # suffix기반 파일명 생성
             clean_suffix = Path(args.urls).stem
             articles_file = Path(output_dir) / f"articles_{clean_suffix}.csv"
+            comments_file = Path(output_dir) / f"comments_{clean_suffix}.csv"
             try:
                 uploader = DriveUploader('auth/credentials.json')
                 uploader.upload_file(articles_file)
-                logger.info(f"구글 드라이브에 업로드 완료: {articles_file}")
+                logger.info(f"구글 드라이브에 articles 업로드 완료: {articles_file}")
+                uploader.upload_file(comments_file)
+                logger.info(f"구글 드라이브에 articles 업로드 완료: {comments_file}")
             except Exception as e:
                 logger.warning(f"구글 드라이브에 업로드 실패: {e}")
                 raise
+            
             
         # 최종 결과 리포트
         logger.info(f"통합 크롤링 완료!")
@@ -880,7 +884,6 @@ def main():
     except Exception as e:
         print(f"오류 발생: {e}")
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()

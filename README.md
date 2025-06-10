@@ -33,6 +33,10 @@
 
   7. 스크립트 실행
     python batch_scraper_runner.py --directory ./urls --pattern "*.txt"
+    
+    python batch_scraper_runner.py --directory ./urls --pattern "*.txt" --upload --continue-on-error
+
+  
 
 
 ## Start Project (windows)
