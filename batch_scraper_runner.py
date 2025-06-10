@@ -118,7 +118,7 @@ class BatchScraper:
                 self.logger.warning(f"파일을 찾을 수 없습니다: {file}")
         return valid_files
 
-    def run_single_scraper(self, url_file: str) -> bool:
+    def run_single_scraper(self, url_file: str, should_upload: bool = False) -> bool:
         """
         개별 스크래퍼 실행
 
@@ -132,6 +132,13 @@ class BatchScraper:
             self.logger.info(f"스크래핑 시작: {url_file}")
 
             cmd = [sys.executable, self.scraper_path, '--urls', url_file]
+
+            self.logger.info(f"구글드라이브 업로드: {should_upload}")
+
+            # 구글 드라이브 업로드 설정
+            if should_upload:
+                cmd.append('--upload')
+
             result = subprocess.run(
                 cmd,
                 capture_output=False,
@@ -167,7 +174,10 @@ class BatchScraper:
             self.logger.info(f"{self.delay}초 대기 중...")
             time.sleep(self.delay)
 
-    def process_files(self, files: List[str], continue_on_error: bool = False) -> BatchResult:
+    def process_files(self, 
+                      files: List[str], 
+                      continue_on_error: bool = False,
+                      should_upload: bool = False) -> BatchResult:
         """
         파일들을 배치 처리
 
@@ -196,7 +206,7 @@ class BatchScraper:
             self.log_progress()
             self.logger.info(f"처리 중: {file}")
 
-            success = self.run_single_scraper(file)
+            success = self.run_single_scraper(file, should_upload)
 
             if success:
                 success_count += 1
@@ -245,9 +255,12 @@ class BatchScraper:
         if result.failed_files:
             self.logger.warning(f"실패한 파일들: {result.failed_files}")
 
-    def run_batch(self, files: Optional[List[str]] = None,
-                  directory: str = '.', pattern: str = 'url*.txt',
-                  continue_on_error: bool = False) -> BatchResult:
+    def run_batch(self, 
+                  files: Optional[List[str]] = None,
+                  directory: str = '.', 
+                  pattern: str = 'url*.txt',
+                  continue_on_error: bool = False,
+                  should_upload: bool = False) -> BatchResult:
         """
         배치 실행 (메인 인터페이스)
 
@@ -279,7 +292,7 @@ class BatchScraper:
             raise ValueError("유효한 URL 파일이 없습니다.")
 
         # 배치 처리 실행
-        return self.process_files(valid_files, continue_on_error)
+        return self.process_files(valid_files, continue_on_error, should_upload)
 
 
 def main():
@@ -302,6 +315,11 @@ def main():
                         help='파일 간 처리 대기 시간(초) (기본값: 5)')
     parser.add_argument('--continue-on-error',
                         action='store_true', help='오류 발생 시에도 계속 진행')
+    
+    # 드라이브 업로드 옵션
+    parser.add_argument('--upload',
+                        action='store_true', 
+                        help='구글 드라이브에 작업내용 업로드')
 
     args = parser.parse_args()
 
@@ -317,7 +335,8 @@ def main():
             files=args.files,
             directory=args.directory,
             pattern=args.pattern,
-            continue_on_error=args.continue_on_error
+            continue_on_error=args.continue_on_error,
+            should_upload=args.upload
         )
 
         # 실패한 파일이 있으면 종료 코드 1로 종료

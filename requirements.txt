@@ -25,3 +25,9 @@ python-dateutil>=2.8.0
 # 텍스트 처리
 beautifulsoup4>=4.12.0
 lxml>=4.9.0
+
+# 구글 드라이브 / 서비스계정
+google-api-python-client==2.108.0
+google-auth-httplib2==0.1.1
+google-auth==2.23.4
+google-auth-oauthlib==1.1.0

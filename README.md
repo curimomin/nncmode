@@ -2,8 +2,16 @@
 📗 네이버 뉴스 크롤러
 
 
-## Notice
+## Note
   1. 작업 전 가상환경 설정과 requirements 설치 필요
+
+## Utils
+  1. check_uploaded_files.py 
+
+  2. delete_uploaded_file.py (사용시 --id [id] 입력필요) 
+
+## Google Drive - service account
+  1. drive_uploader.py
 
 ## Start Project (macOS)
   1. git clone [url]

@@ -30,6 +30,8 @@ from utils import (
     validate_config, get_system_info
 )
 
+from drive_uploader import DriveUploader
+
 
 class NaverNewsMainScraper:
     """네이버 뉴스 통합 크롤러 클래스"""
@@ -793,6 +795,7 @@ def main():
     parser.add_argument('--urls', required=True, help='URL 목록 파일 경로')
     parser.add_argument('--config', default='config.json', help='설정 파일 경로')
     parser.add_argument('--output', default='output/', help='출력 디렉토리')
+    parser.add_argument('--upload', action='store_true', help='구글 드라이브에 작업내용 업로드')
 
     args = parser.parse_args()
 
@@ -840,6 +843,21 @@ def main():
             from utils import save_failed_urls
             save_failed_urls(scraper.failed_urls, output_dir)
 
+        # 구글 드라이브 업로드
+        if args.upload:
+            logger.info("구글 드라이브에 업로드 시작")
+            
+            # suffix기반 파일명 생성
+            clean_suffix = Path(args.urls).stem
+            articles_file = Path(output_dir) / f"articles_{clean_suffix}.csv"
+            try:
+                uploader = DriveUploader('auth/credentials.json')
+                uploader.upload_file(articles_file)
+                logger.info(f"구글 드라이브에 업로드 완료: {articles_file}")
+            except Exception as e:
+                logger.warning(f"구글 드라이브에 업로드 실패: {e}")
+                raise
+            
         # 최종 결과 리포트
         logger.info(f"통합 크롤링 완료!")
         logger.info(f"소요 시간: {duration}")
