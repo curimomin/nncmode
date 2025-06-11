@@ -25,3 +25,6 @@ logs/*
 # Output
 output/*
 !output/.gitkeep
+
+#urls
+urls/*
