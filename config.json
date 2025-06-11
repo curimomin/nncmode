@@ -1,15 +1,15 @@
 {
   "scraping": {
-    "delay_between_requests": 3.0,
-    "timeout": 15,
-    "retry_count": 5,
+    "delay_between_requests": 1.8,
+    "timeout": 10,
+    "retry_count": 3,
     "max_workers": 1,
     "headless": false
   },
   "selenium": {
     "implicit_wait": 2,
-    "page_load_timeout": 30,
-    "script_timeout": 30,
+    "page_load_timeout": 10,
+    "script_timeout": 10,
     "window_size": {
       "width": 1920,
       "height": 1080

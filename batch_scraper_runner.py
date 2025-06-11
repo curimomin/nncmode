@@ -142,7 +142,7 @@ class BatchScraper:
             result = subprocess.run(
                 cmd,
                 capture_output=False,
-                text=True,
+                text=False,
                 timeout=18000  # 1시간 타임아웃
             )
 
